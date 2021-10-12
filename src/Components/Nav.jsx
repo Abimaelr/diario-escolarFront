@@ -30,21 +30,27 @@ function Navegacao(props) {
                     <Nav className="me-auto">
                     <Nav.Link href="/">Início</Nav.Link>
                     <Nav.Link href="/turmas">Turmas</Nav.Link>
-                    <NavDropdown title="Frequência" id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="#action3">Inserir</NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">Consultar</NavDropdown.Item>
-                        {/* <NavDropdown.Divider /> */}
-                        <NavDropdown.Item href="#action5">
-                            Editar
-                        </NavDropdown.Item>
-                    </NavDropdown>
+                        <NavDropdown title="Frequência" id="navbarScrollingDropdown">
+                            <NavDropdown.Item>
+                                <Nav.Link href="diario/inserir">Inserir</Nav.Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Item>
+                                <Nav.Link href="diario/editar">Editar</Nav.Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Item>
+                                <Nav.Link href="diario/consultar">Consultar</Nav.Link>
+                            </NavDropdown.Item>
+                        </NavDropdown>
                     <NavDropdown title="Notas" id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="#action3">Inserir</NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">Consultar</NavDropdown.Item>
-                        {/* <NavDropdown.Divider /> */}
-                        <NavDropdown.Item href="#action5">
-                            Editar
-                        </NavDropdown.Item>
+                        <NavDropdown.Item>
+                                <Nav.Link href="notas/inserir">Inserir</Nav.Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Item>
+                                <Nav.Link href="notas/editar">Editar</Nav.Link>
+                            </NavDropdown.Item>
+                            <NavDropdown.Item>
+                                <Nav.Link href="notas/consultar">Consultar</Nav.Link>
+                            </NavDropdown.Item>
                     </NavDropdown>
                     <Nav.Link href="#features">Preferências</Nav.Link>
                     </Nav>

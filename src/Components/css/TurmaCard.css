@@ -1,5 +1,19 @@
-@use ../../_default {}.turmaCard {
-  background: yellow;
+.turmaCard {
+  background: #FFECB3;
   width: 250px;
+  color: #212121;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.turmaCard h4 {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.turmaCard h5 p {
+  color: #757575;
 }
 /*# sourceMappingURL=TurmaCard.css.map */

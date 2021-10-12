@@ -7,6 +7,7 @@ import Home from "./Screens/Home";
 import Login from "./Screens/Login";
 import Turmas from "./Screens/Turmas";
 import Nav from "./Components/Nav"
+import Diarios from "./Screens/Diarios";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/turmas" component={Turmas} />
+          <Route exact path="/diarios/:mode" component={Diarios} />
           <Route exact path="/" component={Home} />
         </Switch>
       </Router>
