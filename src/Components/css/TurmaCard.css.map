@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,IAAI,CAAJ,cAAI,GACJ,AAAA,UAAU,CAAC;EACP,UAAU,EAAE,MAAM;EAClB,KAAK,EAAE,KAAK;CAAG",
+    "sources": [
+        "TurmaCard.sass"
+    ],
+    "names": [],
+    "file": "TurmaCard.css"
+}
