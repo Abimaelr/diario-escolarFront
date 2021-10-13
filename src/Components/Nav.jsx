@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Redirect, useLocation } from 'react-router-dom';
+import { Redirect, useLocation, Link } from 'react-router-dom';
 import { Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
 import api from '../Api/Axios';
 import './css/Nav.css'
@@ -30,28 +30,8 @@ function Navegacao(props) {
                     <Nav className="me-auto">
                     <Nav.Link href="/">Início</Nav.Link>
                     <Nav.Link href="/turmas">Turmas</Nav.Link>
-                        <NavDropdown title="Frequência" id="navbarScrollingDropdown">
-                            <NavDropdown.Item>
-                                <Nav.Link href="diario/inserir">Inserir</Nav.Link>
-                            </NavDropdown.Item>
-                            <NavDropdown.Item>
-                                <Nav.Link href="diario/editar">Editar</Nav.Link>
-                            </NavDropdown.Item>
-                            <NavDropdown.Item>
-                                <Nav.Link href="diario/consultar">Consultar</Nav.Link>
-                            </NavDropdown.Item>
-                        </NavDropdown>
-                    <NavDropdown title="Notas" id="navbarScrollingDropdown">
-                        <NavDropdown.Item>
-                                <Nav.Link href="notas/inserir">Inserir</Nav.Link>
-                            </NavDropdown.Item>
-                            <NavDropdown.Item>
-                                <Nav.Link href="notas/editar">Editar</Nav.Link>
-                            </NavDropdown.Item>
-                            <NavDropdown.Item>
-                                <Nav.Link href="notas/consultar">Consultar</Nav.Link>
-                            </NavDropdown.Item>
-                    </NavDropdown>
+                    <Nav.Link href="/diario">Frequencia</Nav.Link>
+                    <Nav.Link href="/boletim">Boletim</Nav.Link>
                     <Nav.Link href="#features">Preferências</Nav.Link>
                     </Nav>
                 </Navbar.Collapse >

@@ -12,7 +12,6 @@ function Turmas() {
         api.get('classes/p', {})
         .then ( ({data}) => {
             setTurmas(data.classes)
-            console.log(data.classes)
         })
         .catch( ({response }) => { 
             const { data } = response;
