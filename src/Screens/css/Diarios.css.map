@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAEA,AAAA,KAAK,EAAE,EAAE,EAAE,EAAE,CAAC;EACV,MAAM,EAAE,GAAG,CAAC,KAAK,CCHE,OAAO;CDGc",
     "sources": [
-        "Diarios.sass"
+        "Diarios.sass",
+        "../../_default.sass"
     ],
     "names": [],
     "file": "Diarios.css"
