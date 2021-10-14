@@ -38,6 +38,7 @@ function Navegacao(props) {
                 <Nav>
                     <h4 className="username">{user}</h4>
                     {/* <Nav.Link href="#pricing">Sair</Nav.Link> */}
+                    <Link onClick={ () => localStorage.clear() } to="/Login">Sair</Link>
                 </Nav>
                 </Container>
             </Navbar>

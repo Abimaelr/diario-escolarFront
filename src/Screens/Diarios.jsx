@@ -12,6 +12,10 @@ function Diarios() {
     const [disciplinas, setDisciplinas] = useState([]);
     const [bimestre, setBimestre] = useState("");
     const [students, setStudents] = useState([]);
+    
+    const [anotacoes, setAnotacoes] = useState("");
+    const [student, setStudent] = useState({});
+    const [freq, setFreq] = useState([]);
 
     useEffect(() => {
         api.get('/disciplinas').then(({data}) => setDisciplinas(data.disciplinas)).catch(({response}) => alert(response))
@@ -27,7 +31,7 @@ function Diarios() {
             <Container>
                 <header >
                     <form action="">
-                        <input type="radio" id="inserir" name="acao" value="inserir" onChange={({ target }) => {setAction(target.value)}}/>
+                        <input type="radio" id="inserir" name="acao" value="inserir" defaultChecked onChange={({ target }) => {setAction(target.value)}}/>
                         <label for="inserir">Inserir</label>
                         <br />
                         <input type="radio" id="editar" name="acao" value="editar" onChange={({ target }) => {setAction(target.value)}} />
@@ -64,13 +68,17 @@ function Diarios() {
                             </tr>
                         </thead>
                         <tbody>
-                            { students.map((s,i) => <tr key={i}>
+                            { students.map((s,i) => { 
+                                setStudents({...students, alunoId: s.alunoId})
+                                return <tr key={i}>
                                 <td>{s.nomeCompleto}</td>
                                 <td>{s.alunoId}</td>
-                                <td><input type="checkbox" id={ s.alunoId } checked/></td>
-                            </tr>) }
+                                <td><input type="checkbox" id={ s.alunoId } defaultChecked/></td>
+                            </tr>}) }
                         </tbody>
                     </table>
+                    <label htmlFor="obs">Anotações</label>
+                    <input type="text" name="" id="obs" onChange={({target}) => setAnotacoes(target.value)} />
                 </div>
             </Container>
         </div>
