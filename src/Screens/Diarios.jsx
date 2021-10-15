@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 import api from '../Api/Axios';
 import './css/Diarios.css'
 function Diarios() {
-
+    const date =  new Date();
     const [action, setAction] = useState("inserir");
     const [data, setData] = useState("");
     const [turma, setTurma] = useState("");
@@ -15,47 +15,97 @@ function Diarios() {
     
     const [anotacoes, setAnotacoes] = useState("");
     const [student, setStudent] = useState({});
-    const [freq, setFreq] = useState([]);
 
     useEffect(() => {
         api.get('/disciplinas').then(({data}) => setDisciplinas(data.disciplinas)).catch(({response}) => alert(response))
-        api.get('/classes/p').then(({data}) => setTurmas(data.classes)).catch(({response}) => alert(response))
+        api.get('/classes/p').then(({data}) => setTurmas(data.classes)).catch(({response}) => alert('response'))
     }, [])
 
     useEffect(()=> {
-        api.get(`/classes/students/${turma}`).then(({data}) => setStudents(data.students)).catch(({response}) => alert(response))
+        setStudents([])
+        api.get(`/classes/students/${turma}`)
+        .then(({data}) =>{ 
+            setStudents(data.students)
+            const buffer = { };
+            data.students.forEach(({ alunoId, codTurma, nomeCompleto }) => {
+                buffer[`${alunoId}`] = {
+                    alunoId,
+                    nomeCompleto,
+                    codTurma,
+                    presenca: true,
+                    obs: "",
+                    ultimaMdificacao: date.toISOString()
+                }
+                setStudent(  buffer  );
+        })})
+            .catch(({response}) => setStudents([]))
     },[turma])
+
+    const markFreq = (id, {target}) => {
+        const buffer = student;
+        buffer[`${id}`] ={
+            ...buffer[`${id}`],
+            presenca: target.checked,
+        }
+        setStudent(buffer);
+    }
+
+    const registrar = (e) => {
+        e.preventDefault();
+        if(data === '' || turma === '' || disciplina === '' || bimestre === '' || anotacoes === '') {
+            return alert("Preencha todos os campos!");
+            
+        }
+        const arr = [];
+
+        Object.keys(student).forEach( s => {
+            arr.push({
+                ...student[s],
+                obs: anotacoes,
+                data,
+            })
+        })
+
+        const out = { pack: arr };
+        api.post('/disciplinas/diarios/', out ).then( (result) => console.log(result)).catch( ({response}) => console.log(response))
+    }
 
     return (
         <div>
+
+            {/* {console.log(student)} */}
             <Container>
                 <header >
                     <form action="">
-                        <input type="radio" id="inserir" name="acao" value="inserir" defaultChecked onChange={({ target }) => {setAction(target.value)}}/>
+                        <input required type="radio" id="inserir" name="acao" value="inserir" defaultChecked onChange={({ target }) => {setAction(target.value)}}/>
                         <label for="inserir">Inserir</label>
                         <br />
-                        <input type="radio" id="editar" name="acao" value="editar" onChange={({ target }) => {setAction(target.value)}} />
+                        <input required type="radio" id="editar" name="acao" value="editar" onChange={({ target }) => {setAction(target.value)}} />
                         <label for="editar">Editar</label>
                         <br />
-                        <input type="radio" id="consultar" name="acao" value="consultar" onChange={({ target }) => {setAction(target.value)}} />
+                        <input required type="radio" id="consultar" name="acao" value="consultar" onChange={({ target }) => {setAction(target.value)}} />
                         <label for="consultar">Consultar</label>
                         <br />
-                        <select name="turma" id="turmas"  onChange={({ target }) => {setTurma(target.value)}}>
-                            <option value="-">Escolha uma turma</option>
+                        <select required name="turma" id="turmas"  onChange={({ target }) => {setTurma(target.value)}}>
+                            <option value="">Escolha uma turma</option>
                             {turmas.map((e,i) => <option key={ i } value={ e.codTurma }>{ e.nomeTurma }</option>)}
                         </select>
-                        <select name="disciplina" id="disciplina"  onChange={({ target }) => {setDisciplina(target.value)}}>
-                            <option value="-">Escolha uma disciplina</option>
+                        <select required name="disciplina" id="disciplina"  onChange={({ target }) => {setDisciplina(target.value)}}>
+                            <option value="">Escolha uma disciplina</option>
                             {disciplinas.map((e,i) => <option key={ i } value={ e }>{ e }</option>)}
                         </select>
-                        <input type="date" id="date"  onChange={({ target }) => { setData(target.value) }}/>
-                        <select name="bimestre" id="bimestre"  onChange={({ target }) => {setBimestre(target.value)}}>
-                            <option value="-">Escolha o bimestre</option>
+                        <input required type="date" id="date"  onChange={({ target }) => { setData(target.value) }}/>
+                        <select required name="bimestre" id="bimestre"  onChange={({ target }) => {setBimestre(target.value)}}>
+                            <option value="">Escolha o bimestre</option>
                             <option value="1">1°</option>
                             <option value="2">2°</option>
                             <option value="3">3°</option>
                             <option value="4">4°</option>
                         </select>
+                        <br />
+                        <label htmlFor="obs">Anotações</label>
+                        <input required type="text" name="" id="obs" onChange={({target}) => setAnotacoes(target.value)} />
+                        <button type="submit" onClick={ registrar }>Registrar!</button>
                     </form>
                 </header>
                 <div>
@@ -64,25 +114,23 @@ function Diarios() {
                             <tr>
                                 <th>Nome</th>
                                 <th>Matrícula</th>
-                                <th>Presença</th>
+                                <th>Presente?</th>
                             </tr>
                         </thead>
                         <tbody>
                             { students.map((s,i) => { 
-                                setStudents({...students, alunoId: s.alunoId})
                                 return <tr key={i}>
                                 <td>{s.nomeCompleto}</td>
                                 <td>{s.alunoId}</td>
-                                <td><input type="checkbox" id={ s.alunoId } defaultChecked/></td>
+                                <td><input onChange={ (event) => markFreq(s.alunoId, event) }type="checkbox" id={ s.alunoId } defaultChecked /></td>
                             </tr>}) }
                         </tbody>
                     </table>
-                    <label htmlFor="obs">Anotações</label>
-                    <input type="text" name="" id="obs" onChange={({target}) => setAnotacoes(target.value)} />
+                    
                 </div>
             </Container>
         </div>
     )
 }
 
-export default Diarios
+export default Diarios;

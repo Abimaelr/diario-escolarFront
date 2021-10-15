@@ -10,7 +10,7 @@ function Navegacao(props) {
     let location = useLocation();
     useEffect(()=>{
         api.get('/').then((response) => {
-            const { nome } = response.data;
+            const { nome} = response.data;
             setUser(nome)
         }).catch(({response}) => {
             const { data } = response;

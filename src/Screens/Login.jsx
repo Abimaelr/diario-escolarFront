@@ -14,10 +14,10 @@ function Login() {
         api.post('/login', {
             userId, password
         }).then(({data}) => {
-            alert("Login feito com sucesso!")
             localStorage.setItem('token', data.token);
             api.defaults.headers.common['Authorization'] = localStorage.getItem('token');
             setRedirect(true);
+            alert("Login feito com sucesso!")
         }).catch(({response}) => {
             const { data } = response;
             alert(data.message)
