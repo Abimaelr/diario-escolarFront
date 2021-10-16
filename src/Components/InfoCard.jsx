@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import { Modal, Button } from  'react-bootstrap';
 
@@ -11,17 +12,24 @@ function InfoCard(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleEdit = () => setEdit(true);
-    const saveEdit = () => setEdit(false);
+    const saveEdit = async () => {
+        axios.put('disciplinas/diarios/', {
+            pack: freq
+        }).then(result => console.log(result))
+        setEdit(false);
+    }
+
     useEffect(() => {
         let f = 0;
         freq.forEach((s,i) => { 
          if(!s.presenca) f++;
         })
         setFaltas(f);
-    }, []);
+    }, [edit, show]);
 
     const editFreq = ({target}) => {
         freq[target.id].presenca = !freq[target.id].presenca;
+
     }
 
     return (
