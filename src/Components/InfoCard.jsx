@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import { Modal, Button } from  'react-bootstrap';
-
+import { useLocation } from 'react-router-dom';
 
 function InfoCard(props) {
-    const { title , sub, info, freq, disciplina } = props;
+    const location = useLocation().pathname;
+    const { title , sub, info, notas, freq, disciplina } = props;
     const [show, setShow] = useState(false);
     const [edit, setEdit] = useState(false);
     const [faltas, setFaltas] = useState(0);
@@ -12,6 +13,7 @@ function InfoCard(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleEdit = () => setEdit(true);
+
     const saveEdit = async () => {
         axios.put('disciplinas/diarios/', {
             pack: freq
@@ -25,11 +27,10 @@ function InfoCard(props) {
          if(!s.presenca) f++;
         })
         setFaltas(f);
-    }, [edit, show]);
+    }, [edit, freq, show]);
 
     const editFreq = ({target}) => {
         freq[target.id].presenca = !freq[target.id].presenca;
-
     }
 
     return (
@@ -44,7 +45,7 @@ function InfoCard(props) {
                 </Button>
             </div>
 
-            <Modal show={show || edit} onHide={handleClose} animation={false}>
+            <Modal show={show || edit} onHide={() => { handleClose(); setEdit(false)}} animation={false}>
             <Modal.Header closeButton>
             <Modal.Title>Frequência do dia: {title}
             <br />
@@ -57,17 +58,20 @@ function InfoCard(props) {
                     <tr>
                         <th>Nome</th>
                         <th>Matrícula</th>
+                        {
+                            
+                        }
                         <th>Presença</th>
                     </tr>
                 </thead>
                 <tbody>
-                    { freq.map((s,i) => { 
+                    { (freq).map((s,i) => { 
                         return <tr key={i}>
                         <td>{s.nomeCompleto}</td>
                         <td>{s.alunoId}</td>
                         {
                             !edit ? <td>{ s.presenca === true? "SIM" : "NÃO"}</td>:
-                            <td> <input type="checkbox" name="" id={i} defaultChecked={s.presenca === true} onChange={ editFreq } /></td>
+                            <td><input type="checkbox" name="" id={i} defaultChecked={ s.presenca } onChange={ editFreq } /></td>
                         }
                     </tr>}) }
                 </tbody>

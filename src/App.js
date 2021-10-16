@@ -8,7 +8,7 @@ import Home from "./Screens/Home";
 import Login from "./Screens/Login";
 import Turmas from "./Screens/Turmas";
 import Nav from "./Components/Nav"
-import Diarios from "./Screens/Diarios";
+import Gerenciar from "./Screens/Gerenciar";
 import Boletim from './Screens/Boletim';
 
 function App() {
@@ -19,8 +19,8 @@ function App() {
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/turmas" component={Turmas} />
-          <Route exact path="/diario" component={Diarios} />
-          <Route exact path="/boletim" component={Boletim} />
+          <Route exact path="/diario" component={Gerenciar} />
+          <Route exact path="/boletim" component={Gerenciar} />
           <Route exact path="/" component={Home} />
         </Switch>
       </Router>
