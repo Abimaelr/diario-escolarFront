@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import api from '../Api/Axios';
-import InfoCard from './InfoCard';
+import ConsultaFrequencia from './ConsultaFrequencia';
 
 import { useLocation } from 'react-router-dom';
+import ConsultaBoletim from './ConsultaBoletim';
 
 function ConsultarFreq(props) {
     const location = useLocation().pathname;
@@ -34,7 +35,7 @@ function ConsultarFreq(props) {
             ).then( result => {
                 const { data } = result;
                 const obj = data.result.reduce((acc, current) => {
-                    const key = current.data;
+                    const key = current.bimestre;
                     if(!acc[key]) acc[key] = [];
                     acc[key].push(current);
                     return acc;
@@ -52,8 +53,8 @@ function ConsultarFreq(props) {
             <button onClick={ consultar }>Consultar!</button>
             {
                 location === '/diario' ? 
-                itens.map(({ data, obj }) =>  <InfoCard title={ data } freq={ obj } disciplina={  disciplina }/>):
-                itens.map(({ data, obj }) =>  <InfoCard title={ data } nota={ obj } disciplina={  disciplina }/>)
+                itens.map(({ data, obj }) =>  <ConsultaFrequencia title={ data } freq={ obj } disciplina={  disciplina }/>):
+                itens.map(({ data, obj }) =>   <ConsultaBoletim title={ data } notas={ obj } disciplina={  disciplina }/>)
             }
            
             

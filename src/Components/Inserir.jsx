@@ -58,6 +58,10 @@ function InserirFreq(props) {
         setStudent(buffer);
     }
     const markBol= (id, {target}) => {
+        if(target.value > 10 || target.value < 0) {
+            target.value = 0;
+            return alert('A nota deve estar entre 0 e 10')
+        }
         const buffer = student;
         buffer[`${id}`] ={
             ...buffer[`${id}`],
