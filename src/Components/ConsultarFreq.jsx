@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import api from '../Api/Axios';
+import InfoCard from './InfoCard';
 
 function ConsultarFreq(props) {
 
@@ -31,8 +32,9 @@ function ConsultarFreq(props) {
         <div>
             <button onClick={ consultar }>Consultar!</button>
             {
-                freqs.map(({ data,obj }) => <a>{ data }</a>)
+                freqs.map(({ data, obj }) =>  <InfoCard title={ data } freq={ obj } disciplina={  disciplina }/>)
             }
+           
             
         </div>
     )

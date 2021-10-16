@@ -36,7 +36,6 @@ function InserirFreq(props) {
         setStudent(buffer);
     }
 
-
     const registrar = (e) => {
         e.preventDefault();
         if(data === '' || turma === '' || disciplina === '' || horaAula === '' || anotacoes === '') {
