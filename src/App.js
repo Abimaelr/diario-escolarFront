@@ -12,13 +12,10 @@ import Gerenciar from "./Screens/Gerenciar";
 import Boletim from './Screens/Boletim';
 import Settings from "./Screens/Settings";
 
-import Provider from './Context/provider';
-
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Provider>
+        <Router>
           <Nav />
           <Switch>
             <Route exact path="/login" component={Login} />
@@ -28,9 +25,7 @@ function App() {
             <Route exact path="/config" component={Settings} />
             <Route exact path="/" component={Home} />
           </Switch>
-        </Provider>
-      </Router>
-    
+        </Router>  
     </div>
   );
 }

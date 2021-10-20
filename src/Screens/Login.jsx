@@ -1,9 +1,10 @@
-import React,{useState} from 'react';
+import React,{ useState, useContext } from 'react';
 import { Container } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import api from '../Api/Axios';
 import './css/Login.css'
 
+import jwt from 'jsonwebtoken';
 
 function Login() {
     const [userId, onUserId] = useState('');
@@ -14,7 +15,8 @@ function Login() {
         e.preventDefault();
         api.post('/login', {
             userId, password
-        }).then(({data}) => {
+        }).then(async ({data}) => {
+            const { disciplinas, nome, permissions, profId, turmas } = jwt.decode(data.token);
             localStorage.setItem('token', data.token);
             api.defaults.headers.common['Authorization'] = localStorage.getItem('token');
             setRedirect(true);
@@ -40,9 +42,7 @@ function Login() {
                         <label htmlFor="password"><p>Senha</p></label>
                         <br />
                         <input id="password" type="password" onChange={({target})=> onPass(target.value)}/>
-                        <br />
-                        <br />
-                        <br />
+                        <br /><br /><br />
                         <input id="submit" type="submit" value="Entrar" onClick={(e)=>{log(e)}}/>
                     </form>
                 </div>
