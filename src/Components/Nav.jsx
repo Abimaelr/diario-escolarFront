@@ -25,20 +25,20 @@ function Navegacao(props) {
         
             <Navbar bg="light" variant="light">
                 <Container>
-                <Navbar.Brand>Nota 10</Navbar.Brand>
+                <Navbar.Brand><h1 className="brand">Nota 10</h1></Navbar.Brand>
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                     <Nav.Link href="/">Início</Nav.Link>
                     <Nav.Link href="/turmas">Turmas</Nav.Link>
                     <Nav.Link href="/diario">Frequencia</Nav.Link>
                     <Nav.Link href="/boletim">Boletim</Nav.Link>
-                    <Nav.Link href="#features">Preferências</Nav.Link>
+                    <Nav.Link href="/config">Preferências</Nav.Link>
                     </Nav>
                 </Navbar.Collapse >
                 <Nav>
                     <h4 className="username">{user}</h4>
                     {/* <Nav.Link href="#pricing">Sair</Nav.Link> */}
-                    <Link onClick={ () => localStorage.clear() } to="/Login">Sair</Link>
+                    <Link className="out" onClick={ () => localStorage.clear() } to="/Login">Sair</Link>
                 </Nav>
                 </Container>
             </Navbar>

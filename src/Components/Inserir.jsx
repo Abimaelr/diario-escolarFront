@@ -43,8 +43,6 @@ function InserirFreq(props) {
                     })
                 }
            }
-           
-           
            )
             .catch(({response}) => setStudents([]))
     },[turma])

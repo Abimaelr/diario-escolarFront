@@ -1,5 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap");
 .username {
   font-size: 0.9rem;
-  margin: auto;
+  margin: auto 20px;
+}
+
+.brand {
+  font-family: 'Finger Paint', cursive;
+  color: #512DA8;
+}
+
+.out {
+  text-decoration: none;
+  color: #757575;
 }
 /*# sourceMappingURL=Nav.css.map */

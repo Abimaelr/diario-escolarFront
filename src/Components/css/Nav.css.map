@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,SAAS,CAAC;EAEN,SAAS,EAAE,MAAM;EACjB,MAAM,EAAE,IAAI;CAAG",
+    "mappings": "ACAA,OAAO,CAAC,yEAAI;ADEZ,AAAA,SAAS,CAAC;EAEN,SAAS,EAAE,MAAM;EACjB,MAAM,EAAE,SAAS;CAAG;;AAExB,AAAA,MAAM,CAAC;EACH,WAAW,EAAE,uBAAuB;EACpC,KAAK,ECPc,OAAO;CDOG;;AAEjC,AAAA,IAAI,CAAC;EACD,eAAe,EAAE,IAAI;EACrB,KAAK,ECLc,OAAO;CDKK",
     "sources": [
-        "Nav.sass"
+        "Nav.sass",
+        "../../_default.sass"
     ],
     "names": [],
     "file": "Nav.css"

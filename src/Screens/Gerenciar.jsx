@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useLocation } from 'react-router-dom';
+import DatePicker, { ReactDatePicker } from 'react-datepicker';
 import { Container } from 'react-bootstrap';
 import api from '../Api/Axios';
 import Inserir from '../Components/Inserir';
@@ -9,7 +10,7 @@ import './css/Diarios.css';
 function Diarios() {
 
     const location = useLocation();
-    const date =  new Date();
+    // const date =  new Date();
     const [action, setAction] = useState("inserir");
     const [data, setData] = useState("");
     const [turma, setTurma] = useState("");
@@ -52,7 +53,7 @@ function Diarios() {
                         <br />
                         {
                             action !== "consultar" ? 
-                            <>
+                            <>     
                                 <input required type="date" id="date"  onChange={({ target }) => { setData(target.value) }}/>
                                 <label htmlFor="obs">Anotações</label>
                                 <input required type="text" name="" id="obs" onChange={({target}) => setAnotacoes(target.value)} />

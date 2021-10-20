@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "ACAA,OAAO,CAAC,yEAAI;ADCZ,AAAA,SAAS,CAAC;EACN,gBAAgB,ECOG,OAAO;EDN1B,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI;EACf,MAAM,EAAE,KAAK;EACb,KAAK,EAAE,IAAI;CAAG",
     "sources": [
-        "Turmas.sass"
+        "Turmas.sass",
+        "../../_default.sass"
     ],
     "names": [],
     "file": "Turmas.css"
