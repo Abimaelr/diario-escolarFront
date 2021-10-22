@@ -3,7 +3,6 @@ import api from '../Api/Axios';
 import { useLocation } from 'react-router-dom';
 
 function Tipo (t, s, markBolC, markBolN) {
-    console.log(t)
     if (t === 'ci')
         return(
             <select onChange={ (event) => markBolC(s.alunoId, event)} id={ s.alunoId } >
@@ -19,8 +18,7 @@ function Tipo (t, s, markBolC, markBolN) {
             <option value="Precisa Melhorar">Precisa Melhorar</option>
         </select>)
     if(t === 'n')
-        return
-            <input onChange={ (event) => markBolN(s.alunoId, event) }type="number" min="0" defaultValue="0" max="10.0" id={ s.alunoId } />
+        return <input onChange={ (event) => markBolN(s.alunoId, event) }type="number" min="0" defaultValue="0" max="10.0" id={ s.alunoId } />
         
             
 }
