@@ -47,7 +47,7 @@ function InfoCard(props) {
             <Modal.Header closeButton>
             <Modal.Title>Frequência do dia: {title}
             <br />
-            <p>{ disciplina }</p>
+            <p>{ disciplina.nome }</p>
             <p>Faltas: { faltas }</p>
             </Modal.Title>
             </Modal.Header>

@@ -15,23 +15,23 @@ function ConsultarFreq(props) {
         if( turma === '' || disciplina === '') return alert('Escolha a turma e disciplina!');
 
         if ( location === '/diario') {
-            api.get(`disciplinas/diarios?codTurma=${turma}&disciplina=${disciplina}`
+            api.get(`disciplinas/diarios?codTurma=${turma}&disciplina=${disciplina.nome}`
             ).then( result => {
+                
                 const { data } = result;
-    
                 const obj = data.result.reduce((acc, current) => {
                     const key = current.data;
                     if(!acc[key]) acc[key] = [];
                     acc[key].push(current);
                     return acc;
                 }, {})
-                const keys = Object.keys(obj).map(date => obj[date]).
-                map(obj => { return {data: obj[0].data, obj}})
-                
+                const keys = Object.keys(obj).map(date => obj[date])
+                .map(obj => { return {data: obj[0].data, obj}})
+                console.log(keys);
                 setItens(keys);
             })
         } else {
-            api.get(`disciplinas/boletins?codTurma=${turma}&disciplina=${disciplina}`
+            api.get(`disciplinas/boletins?codTurma=${turma}&disciplina=${disciplina.nome}`
             ).then( result => {
                 const { data } = result;
                 const obj = data.result.reduce((acc, current) => {
@@ -53,8 +53,8 @@ function ConsultarFreq(props) {
             <button onClick={ consultar }>Consultar!</button>
             {
                 location === '/diario' ? 
-                itens.map(({ data, obj }) =>  <ConsultaFrequencia title={ data } freq={ obj } disciplina={  disciplina }/>):
-                itens.map(({ data, obj }) =>   <ConsultaBoletim title={ data } notas={ obj } disciplina={  disciplina }/>)
+                itens.map(({ data, obj }, i) =>  <ConsultaFrequencia key={ i } title={ data } freq={ obj} disciplina={  disciplina }/>):
+                itens.map(({ data, obj }, i) =>   <ConsultaBoletim  key={ i } title={ data } notas={ obj } disciplina={  disciplina }/>)
             }
            
             

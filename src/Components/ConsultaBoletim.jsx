@@ -49,7 +49,7 @@ function ConsultaBoletim(props) {
             <Modal.Header closeButton>
             <Modal.Title>Frequência do dia: {title}
             <br />
-            <p>{ disciplina }</p>
+            <p>{ disciplina.nome }</p>
             </Modal.Title>
             </Modal.Header>
             <table>

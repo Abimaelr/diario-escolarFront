@@ -1,27 +1,24 @@
 import React,{ useState, useEffect }from 'react';
 import api from '../Api/Axios';
 import { useLocation } from 'react-router-dom';
+import Tipo from '../Helpers/Tipo'
 
-function Tipo (t, s, markBolC, markBolN) {
-    if (t === 'ci')
-        return(
-            <select onChange={ (event) => markBolC(s.alunoId, event)} id={ s.alunoId } >
-                <option value="Atingida">Atingida</option>
-                <option value="Atingida Parcialmete">Atingida Parcialmete</option>
-                <option value="Não Atingida">Não Atingida</option>
-            </select>)
-    if (t === 'c')
-    return(
-        <select onChange={ (event) => markBolC(s.alunoId, event)} id={ s.alunoId } >
-            <option value="Satisfatório">Satisfatório</option>
-            <option value="Bom">Bom</option>
-            <option value="Precisa Melhorar">Precisa Melhorar</option>
-        </select>)
-    if(t === 'n')
-        return <input onChange={ (event) => markBolN(s.alunoId, event) }type="number" min="0" defaultValue="0" max="10.0" id={ s.alunoId } />
-        
-            
+function Nota (d) {
+    if(d.tipo === 'ci') return {
+        nota: "Atingida",
+        DAprendizagem: [],
+        Experiencia:[]
+    }
+    if(d.tipo === 'c') return {
+        nota: "Satisfatório",
+        Eixo: []
+    }
+    if(d.tipo === 'n') return {
+        nota: "0.0",
+    }
 }
+
+
 
 function InserirFreq(props) {
     const { students, setStudents, turma, disciplina, data, horaAula, anotacoes, bimestre } = props.dados;
@@ -56,8 +53,7 @@ function InserirFreq(props) {
                             alunoId,
                             nomeCompleto,
                             codTurma,
-                            nota: "",
-                            obs: "",
+                            ...Nota(disciplina),
                             ultimaMdificacao: date.toISOString()
                         }
                     setStudent(  buffer  );
@@ -90,6 +86,7 @@ function InserirFreq(props) {
     }
 
     const markBolC = (id, {target}) => {
+        console.log(target.value)
         const buffer = student;
         buffer[`${id}`] ={
             ...buffer[`${id}`],
@@ -157,7 +154,7 @@ function InserirFreq(props) {
                     <td>{s.alunoId}</td>
                     {
                         location === '/diario' ? <td><input onChange={ (event) => markFreq(s.alunoId, event) }type="checkbox" id={ s.alunoId } defaultChecked /></td>:
-                        <td> {Tipo(disciplina.tipo, s, markBolN, markBolC)}
+                        <td> {Tipo(disciplina.tipo, s, markBolC, markBolN)}
                            </td>
 
                     }
