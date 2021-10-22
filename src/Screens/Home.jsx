@@ -6,9 +6,10 @@ function Home() {
     useEffect(()=>{
         api.get('/').then((response) => {
             // const { nome } = response.data;
+
         }).catch(({response}) => {
             const { data } = response;
-            alert(data.message)
+            // console.log(response).catch(error)
         })
     },[]);
     return (

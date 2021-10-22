@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
-import Context from '../Context/context';
+import React, { useEffect } from 'react';
+import api from '../Api/Axios';
 
-function Settings() {
-    const { user } = useContext(Context);
-    console.log(user)
+function Settings() { 
+
     return (
         <div>
         

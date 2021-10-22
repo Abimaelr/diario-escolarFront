@@ -2,6 +2,29 @@ import React,{ useState, useEffect }from 'react';
 import api from '../Api/Axios';
 import { useLocation } from 'react-router-dom';
 
+function Tipo (t, s, markBolC, markBolN) {
+    console.log(t)
+    if (t === 'ci')
+        return(
+            <select onChange={ (event) => markBolC(s.alunoId, event)} id={ s.alunoId } >
+                <option value="Atingida">Atingida</option>
+                <option value="Atingida Parcialmete">Atingida Parcialmete</option>
+                <option value="Não Atingida">Não Atingida</option>
+            </select>)
+    if (t === 'c')
+    return(
+        <select onChange={ (event) => markBolC(s.alunoId, event)} id={ s.alunoId } >
+            <option value="Satisfatório">Satisfatório</option>
+            <option value="Bom">Bom</option>
+            <option value="Precisa Melhorar">Precisa Melhorar</option>
+        </select>)
+    if(t === 'n')
+        return
+            <input onChange={ (event) => markBolN(s.alunoId, event) }type="number" min="0" defaultValue="0" max="10.0" id={ s.alunoId } />
+        
+            
+}
+
 function InserirFreq(props) {
     const { students, setStudents, turma, disciplina, data, horaAula, anotacoes, bimestre } = props.dados;
     const date = new Date();
@@ -35,7 +58,7 @@ function InserirFreq(props) {
                             alunoId,
                             nomeCompleto,
                             codTurma,
-                            nota: "0.0",
+                            nota: "",
                             obs: "",
                             ultimaMdificacao: date.toISOString()
                         }
@@ -45,7 +68,7 @@ function InserirFreq(props) {
            }
            )
             .catch(({response}) => setStudents([]))
-    },[turma])
+    },[turma, disciplina])
 
     const markFreq = (id, {target}) => {
         const buffer = student;
@@ -55,11 +78,20 @@ function InserirFreq(props) {
         }
         setStudent(buffer);
     }
-    const markBol= (id, {target}) => {
+    const markBolN= (id, {target}) => {
         if(target.value > 10 || target.value < 0) {
             target.value = 0;
             return alert('A nota deve estar entre 0 e 10')
         }
+        const buffer = student;
+        buffer[`${id}`] ={
+            ...buffer[`${id}`],
+            nota: target.value,
+        }
+        setStudent(buffer);
+    }
+
+    const markBolC = (id, {target}) => {
         const buffer = student;
         buffer[`${id}`] ={
             ...buffer[`${id}`],
@@ -127,7 +159,8 @@ function InserirFreq(props) {
                     <td>{s.alunoId}</td>
                     {
                         location === '/diario' ? <td><input onChange={ (event) => markFreq(s.alunoId, event) }type="checkbox" id={ s.alunoId } defaultChecked /></td>:
-                        <td><input onChange={ (event) => markBol(s.alunoId, event) }type="number" min="0" defaultValue="0" max="10.0" id={ s.alunoId } defaultChecked /></td>
+                        <td> {Tipo(disciplina.tipo, s, markBolN, markBolC)}
+                           </td>
 
                     }
                 </tr>}) }
@@ -138,4 +171,4 @@ function InserirFreq(props) {
     )
 }
 
-export default InserirFreq
+export default InserirFreq;

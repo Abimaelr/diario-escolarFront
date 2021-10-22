@@ -16,8 +16,8 @@ function Login() {
         api.post('/login', {
             userId, password
         }).then(async ({data}) => {
-            const { disciplinas, nome, permissions, profId, turmas } = jwt.decode(data.token);
             localStorage.setItem('token', data.token);
+            localStorage.setItem('disciplinas', JSON.stringify(data.disciplinas));
             api.defaults.headers.common['Authorization'] = localStorage.getItem('token');
             setRedirect(true);
             alert("Login feito com sucesso!")
