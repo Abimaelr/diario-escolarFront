@@ -7,9 +7,9 @@ import {
 import Home from "./Screens/Home";
 import Login from "./Screens/Login";
 import Turmas from "./Screens/Turmas";
-import Nav from "./Components/Nav"
+// import Nav from "./Components/Nav"
 import Gerenciar from "./Screens/Gerenciar";
-import Boletim from './Screens/Boletim';
+// import Boletim from './Screens/Boletim';
 import Settings from "./Screens/Settings";
 
 import './App.css'
@@ -18,7 +18,6 @@ function App() {
   return (
     <div className="App">
         <Router>
-          <Nav />
           <Switch>
             <Route exact path="/login" component={Login} />
             <Route exact path="/turmas" component={Turmas} />

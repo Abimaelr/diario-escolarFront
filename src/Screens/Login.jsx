@@ -27,7 +27,8 @@ function Login() {
         })
 
     }
-    if(redirect) return <Redirect to="/" /> 
+    if(redirect) return <Redirect to="/" />
+    else
     return (
 
             <div>
@@ -38,7 +39,7 @@ function Login() {
                     <Col sm={ 5 }>
                         <div className="loginBox">
                             <form action="" method="post">
-                                <h1>Boletim 2021</h1>
+                                <h1>Diário de classe 2021</h1>
                                 <label htmlFor="email">Login</label>
                                 <br />
                                 <input id="email" type="email" onChange={({target}) => onUserId(target.value)}/>

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 .login {
   margin: 0;
   padding: 0;
@@ -57,15 +58,17 @@
 }
 
 .loginBox h1 {
-  font-family: 'Finger Paint';
-  font-size: 3.5rem;
+  font-family: 'Roboto', sans-serif;
+  color: #737373;
+  font-size: 3rem;
+  font-weight: 800;
 }
 
 #submit {
   margin: auto;
   width: 100%;
   padding: 10px;
-  background-color: #512DA8;
+  background-color: #FF4D4D;
   border-radius: 5px;
   color: #D1C4E9;
 }

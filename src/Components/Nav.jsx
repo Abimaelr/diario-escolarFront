@@ -25,7 +25,7 @@ function Navegacao(props) {
         
             <Navbar bg="light" variant="light">
                 <Container>
-                <Navbar.Brand><h1 className="brand">Nota 10</h1></Navbar.Brand>
+                <Navbar.Brand><h1 className="brand">Diário de Classe 2021</h1></Navbar.Brand>
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                     <Nav.Link href="/">Início</Nav.Link>
