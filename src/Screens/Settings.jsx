@@ -5,7 +5,6 @@ import api from '../Api/Axios';
 function Settings() {
     const [grade, setGrade] = useState([]);
     const [disciplinas, setDisciplinas] = useState([]);
-
     const [disciplinasProf, setDisc] = useState('')
 
     useEffect(() => {
@@ -24,7 +23,6 @@ function Settings() {
             buffer.push(disc)
         if (!checked)
             buffer = buffer.filter(e => `${e.componente} ${e.nome}` !== `${disc.componente} ${disc.nome}`)
-        console.log(buffer)
         setDisc(buffer);
     }
 

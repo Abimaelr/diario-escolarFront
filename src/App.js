@@ -12,6 +12,8 @@ import Gerenciar from "./Screens/Gerenciar";
 import Boletim from './Screens/Boletim';
 import Settings from "./Screens/Settings";
 
+import './App.css'
+
 function App() {
   return (
     <div className="App">

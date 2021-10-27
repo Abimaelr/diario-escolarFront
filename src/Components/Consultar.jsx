@@ -42,7 +42,6 @@ function ConsultarFreq(props) {
                 }, {})
                 const keys = Object.keys(obj).map(date => obj[date])
                 .map(obj => { return {data: obj[0].data, obj}})
-                
                 setItens(keys);
             })
         }

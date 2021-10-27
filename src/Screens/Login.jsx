@@ -1,5 +1,5 @@
 import React,{ useState, useContext } from 'react';
-import { Container } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import api from '../Api/Axios';
 import './css/Login.css'
@@ -29,25 +29,30 @@ function Login() {
     }
     if(redirect) return <Redirect to="/" /> 
     return (
-        <Container>
-            <div className="login">
-                <div className="loginBox">
-                    <h2>Sistema</h2>
-                    <h1>Nota 10</h1>
-                    <form action="" method="post">
-                        <label htmlFor="email"><p>Login</p></label>
-                        <br />
-                        <input id="email" type="email" onChange={({target}) => onUserId(target.value)}/>
-                        <br />
-                        <label htmlFor="password"><p>Senha</p></label>
-                        <br />
-                        <input id="password" type="password" onChange={({target})=> onPass(target.value)}/>
-                        <br /><br /><br />
-                        <input id="submit" type="submit" value="Entrar" onClick={(e)=>{log(e)}}/>
-                    </form>
-                </div>
+
+            <div>
+                <Row  className="login">
+                    <Col sm={ 7 }>
+                        <div className="imageLogin" />
+                    </Col>
+                    <Col sm={ 5 }>
+                        <div className="loginBox">
+                            <form action="" method="post">
+                                <h1>Boletim 2021</h1>
+                                <label htmlFor="email">Login</label>
+                                <br />
+                                <input id="email" type="email" onChange={({target}) => onUserId(target.value)}/>
+                                <br />
+                                <label htmlFor="password">Senha</label>
+                                <br />
+                                <input id="password" type="password" onChange={({target})=> onPass(target.value)}/>
+                                <br /><br /><br />
+                                <input id="submit" type="submit" value="Entrar" onClick={(e)=>{log(e)}}/>
+                            </form>
+                        </div>
+                    </Col>
+                </Row>
             </div>
-        </Container>
     )
 }
 

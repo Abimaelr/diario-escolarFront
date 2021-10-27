@@ -29,6 +29,7 @@ function InserirFreq(props) {
     const [student, setStudent] = useState({});
     useEffect(()=> {
         setStudents([])
+        console.log('TO AQUI')
         api.get(`/classes/students/${turma}`)
         .then(({data}) =>{ 
             if(location === '/diario' ){
@@ -62,7 +63,7 @@ function InserirFreq(props) {
            }
            )
             .catch(({response}) => setStudents([]))
-    },[turma, disciplina])
+    },[disciplina])
 
     const markFreq = (id, {target}) => {
         const buffer = student;
