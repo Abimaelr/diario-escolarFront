@@ -1,0 +1,40 @@
+@import '../../_default'
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.links
+    display: grid
+    grid-template-columns: auto auto auto
+    grid-gap: 10px
+    @media screen and (max-width: 600px)
+        grid-template-columns: auto
+
+
+.seletor
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 20px 0
+    font-size: 30px
+    min-width: 200px
+    border-radius: 5px
+    border: solid 1px #d9d9d93d
+    height: 250px
+    background-color: #d9d9d9d0
+    transition: 400ms
+    h1
+        color: $primary-text-color
+    &:hover
+        transform: translateY(-5px)
+        cursor: pointer
+
+
+.a
+    grid-column: 1 / 3
+
+// .b
+//    grid-area: 1 / 2 / 2 / 3
+
+.link
+    text-decoration: none
+    color: $primary-text-color
+

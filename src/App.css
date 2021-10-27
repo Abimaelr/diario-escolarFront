@@ -6,3 +6,10 @@
   min-height: 100vh;
 }
 
+.bg {
+    background-image: url('./background.png');
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

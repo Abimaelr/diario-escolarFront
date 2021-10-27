@@ -21,15 +21,15 @@ function Home(props) {
 
      return (
         <div>
+            <h4 className="username">Olá {user}!</h4>
             <Container>
-                <Link to="/">Início</Link>
-                <Link to="/turmas">Turmas</Link>
-                <Link to="/diario">Frequencia</Link>
-                <Link to="/boletim">Boletim</Link>
-                <Link to="/config">Preferências</Link>
-                <h4 className="username">{user}</h4>
-                {/* <Nav.Link href="#pricing">Sair</Nav.Link> */}
-                <Link className="out" onClick={ () => localStorage.clear() } to="/Login">Sair</Link>
+                <div className="links">
+                    <Link className="link seletor a" to="/turmas"><h1>Turmas</h1></Link>
+                    <Link className="link seletor" to="/diario"><h1 >Frequência</h1></Link>
+                    <Link className="link seletor" to="/boletim"><h1 >Boletim</h1></Link>
+                    <Link className="link seletor b" to="/config"><h1 >Disciplinas</h1></Link>
+                    <Link className="link out seletor" onClick={ () => localStorage.clear() } to="/Login"><div >Sair</div></Link>
+                </div>
             </Container>
         </div>
     )

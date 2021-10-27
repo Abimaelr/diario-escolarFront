@@ -20,11 +20,13 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/login" component={Login} />
-            <Route exact path="/turmas" component={Turmas} />
-            <Route exact path="/diario" component={Gerenciar} />
-            <Route exact path="/boletim" component={Gerenciar} />
-            <Route exact path="/config" component={Settings} />
-            <Route exact path="/" component={Home} />
+            <div className="bg">
+              <Route exact path="/turmas" component={Turmas} />
+              <Route exact path="/diario" component={Gerenciar} />
+              <Route exact path="/boletim" component={Gerenciar} />
+              <Route exact path="/config" component={Settings} />
+              <Route exact path="/" component={Home} />
+            </div>
           </Switch>
         </Router>  
     </div>
