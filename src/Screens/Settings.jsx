@@ -23,8 +23,8 @@ function Settings() {
         if (checked && !buffer.includes(disc))
             buffer.push(disc)
         if (!checked)
-            buffer = buffer.filter(e => e !== disc)
-        console.log(checked, buffer)
+            buffer = buffer.filter(e => `${e.componente} ${e.nome}` !== `${disc.componente} ${disc.nome}`)
+        console.log(buffer)
         setDisc(buffer);
     }
 
