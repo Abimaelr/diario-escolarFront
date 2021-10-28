@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import api from '../Api/Axios';
 import './css/Login.css'
 
-import jwt from 'jsonwebtoken';
+import 'bulma/css/bulma.min.css'
 
 function Login() {
     const [userId, onUserId] = useState('');
@@ -42,13 +42,13 @@ function Login() {
                                 <h1>Diário de classe 2021</h1>
                                 <label htmlFor="email">Login</label>
                                 <br />
-                                <input id="email" type="email" onChange={({target}) => onUserId(target.value)}/>
+                                <input class="input" id="email" type="email" onChange={({target}) => onUserId(target.value)}/>
                                 <br />
                                 <label htmlFor="password">Senha</label>
                                 <br />
-                                <input id="password" type="password" onChange={({target})=> onPass(target.value)}/>
+                                <input class="input" id="password" type="password" onChange={({target})=> onPass(target.value)}/>
                                 <br /><br /><br />
-                                <input id="submit" type="submit" value="Entrar" onClick={(e)=>{log(e)}}/>
+                                <input class="input" id="submit" type="submit" value="Entrar" onClick={(e)=>{log(e)}}/>
                             </form>
                         </div>
                     </Col>

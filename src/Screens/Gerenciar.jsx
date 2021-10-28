@@ -22,6 +22,10 @@ function Diarios() {
     const [bimestre, setBimestre] = useState("");
     const [anotacoes, setAnotacoes] = useState("");
 
+    const [campos, setCampos] = useState([]);
+    const [direitos, setDireitos] = useState([]);
+    const [eixos, setEixos] = useState([])
+
 
     useEffect(() => {
         api.get('/disciplinas').then(({data}) => setDisciplinas(data.disciplinas)).catch(({response}) => alert(response))
@@ -34,31 +38,62 @@ function Diarios() {
     return (
         <div>
             <Container>
-                <header >
-                    <form action="">
-                        <input required type="radio" id="inserir" name="acao" value="inserir" defaultChecked onChange={({ target }) => {setAction(target.value)}}/>
-                        <label for="inserir">Inserir</label>
+                <header>
+                    <form className="panel" action="">
+                        <div className="action">
+                            <div class="control">
+                                <label for="inserir">
+                                    <input required type="radio" id="inserir" name="acao" value="inserir" defaultChecked onChange={({ target }) => {setAction(target.value)}}/>Inserir
+                                </label>
+                            </div>
+                            <br />
+                            <div class="control">
+                                <label for="consultar"><input required type="radio" id="consultar" name="acao" value="consultar" onChange={({ target }) => {setAction(target.value)}} />Consultar</label>
+                            </div>
+                        </div>
                         <br />
-                        <input required type="radio" id="consultar" name="acao" value="consultar" onChange={({ target }) => {setAction(target.value)}} />
-                        <label for="consultar">Consultar</label>
-                        <br />
-                        <select required name="turma" id="turmas"  onChange={({ target }) => {setTurma(target.value)}}>
-                            <option value="">Escolha uma turma</option>
-                            {turmas.map((e,i) => <option key={ i } value={ e.codTurma }>{ e.nomeTurma }</option>)}
-                        </select>
-                        <select required name="disciplina" id="disciplina"  onChange={({ target }) => {setDisciplina(JSON.parse(target.value))}}>
-                            <option value="">Escolha uma disciplina</option>
-                            {disciplinas.map((e,i) => <option key={ i } value={ JSON.stringify(e) }>{ `${e.componente} - ${e.nome}` }</option>)}
-                        </select>
-                        <br />
+                        <div class="control">
+                            <div class="select">
+                                <select required name="turma" id="turmas"  onChange={({ target }) => {setTurma(target.value)}}>
+                                    <option value="">Escolha uma turma</option>
+                                    {turmas.map((e,i) => <option key={ i } value={ e.codTurma }>{ e.nomeTurma }</option>)}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control">
+                            <div class="select">
+                                <select required name="disciplina" id="disciplina"  onChange={({ target }) => {setDisciplina(JSON.parse(target.value))}}>
+                                    <option value="">Escolha uma disciplina</option>
+                                    {disciplinas.map((e,i) => <option key={ i } value={ JSON.stringify(e) }>{ `${e.componente} - ${e.nome}` }</option>)}
+                                </select>
+                            </div>
+                        </div>
+                       
+                        { console.log(disciplina)}
                         {
                             action !== "consultar" ? 
-                            <>     
+                            <>
+                            <div className="checkboxGroup">
+                            {disciplina.eixos ? <h5>Eixos temáticos</h5> : '' }
+                            { disciplina.eixos ? disciplina.eixos.map(e => <label class="checkbox">
+                                <input type="checkbox" /> { e } </label>) : '' }
+                            </div>
+                        <div className="checkboxGroup">
+                            {disciplina.CampExp ? <h5>Campos de experiência</h5> : '' }
+                            { disciplina.CampExp ? disciplina.CampExp.map(e => <label class="checkbox">
+                                <input type="checkbox" /> { e } </label>) : '' }
+                            
+                        </div>
+                        <div className="checkboxGroup">
+                            {disciplina.DireitosAp ? <h5>Direitos de Aprendizado</h5> : '' }
+                            { disciplina.DireitosAp ? disciplina.DireitosAp.map(e => <label class="checkbox">
+                                <input type="checkbox" /> { e } </label>) : '' }
+                        </div>
                                 <input required type="date" id="date"  onChange={({ target }) => { setData(target.value) }}/>
-                                <label htmlFor="obs">Anotações</label>
-                                <input required type="text" name="" id="obs" onChange={({target}) => setAnotacoes(target.value)} />
+                                <div class="control">
+                                    <div class="select">
                                 {
-                                    location.pathname === "/diario" ? 
+                                    location.pathname === "/diario" ?
                                     <select required name="horaAula" id="horaAula"  onChange={({ target }) => {sethoraAula(target.value)}}>
                                         <option value="">Carga Horária</option>
                                         <option value="1">1</option>
@@ -74,15 +109,20 @@ function Diarios() {
                                         <option value="5">final</option>
                                     </select>
                                 }
-                              
+                                </div>
+                              </div>
+                              <textarea required class="textarea" placeholder="Anotações" rows="5" name="" id="obs" onChange={({target}) => setAnotacoes(target.value)} />
                             </>
                             : ""
                         }
+                      
                         {/* <input type="button" value="Limpar campos" /> */}
+
+                    { action === "inserir" ? <Inserir dados={ metadata } action={action} /> : "" }
+                    { action === "consultar" ? <Consultar dados={ metadata } action={action} /> : "" }
+                   
                     </form>
                 </header>
-                { action === "inserir" ? <Inserir dados={ metadata } action={action} /> : "" }
-                { action === "consultar" ? <Consultar dados={ metadata } action={action} /> : "" }
             </Container>
         </div>
     )

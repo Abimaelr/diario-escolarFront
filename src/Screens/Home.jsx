@@ -7,18 +7,17 @@ import './css/Home.css'
 function Home(props) {
     const [user, setUser] = useState('');
     const [auth, setAuth] = useState(true);
-    // let location = useLocation();
     useEffect(()=>{
         api.get('/').then((response) => {
             const { nome } = response.data;
             setUser(nome)
         }).catch(({response}) => {
             const { data } = response;
-            setAuth(false);
             alert(data.message)
+            setAuth(false);
         })
     },[]);
-
+    if (!auth) return <Redirect to="/login" />
      return (
         <div>
             <h4 className="username">Olá {user}!</h4>

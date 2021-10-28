@@ -63,7 +63,7 @@ function InserirFreq(props) {
            }
            )
             .catch(({response}) => setStudents([]))
-    },[disciplina])
+    },[turma, disciplina])
 
     const markFreq = (id, {target}) => {
         const buffer = student;
@@ -111,11 +111,11 @@ function InserirFreq(props) {
                     obs: anotacoes,
                     data,
                     disciplina,
-                    horaAula
                 })
             })
             const out = { pack: arr };
-            api.post('/disciplinas/diarios/', out ).then( (result) => alert('Frequencia registrada com sucesso!')).catch( ({response}) => alert(response.data.message))
+            for (let i = 0; i < horaAula; i++)
+                api.post('/disciplinas/diarios/', out ).then( (result) => alert('Frequencia registrada com sucesso!')).catch( ({response}) => alert(response.data.message))
         }
         else if ( location === '/boletim'){
             Object.keys(student).forEach( s => {
@@ -134,9 +134,10 @@ function InserirFreq(props) {
         }
         }
 
-    return (
+    if(students.length > 0) return (
     <div>
-        <table>
+        <button class="button" type="submit" onClick={ registrar }>Registrar!</button>
+        <table class="table">
             <thead>
                 <tr>
                     <th>Nome</th>
@@ -162,9 +163,9 @@ function InserirFreq(props) {
                 </tr>}) }
             </tbody>
         </table>
-        <button type="submit" onClick={ registrar }>Registrar!</button>
     </div>
     )
+    else return ''
 }
 
 export default InserirFreq;

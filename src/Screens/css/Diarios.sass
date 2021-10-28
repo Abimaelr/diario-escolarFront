@@ -2,3 +2,48 @@
 
 table, th, td
     border: 1px solid $primary-color-dark
+
+.panel
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: center
+    grid-gap: 10px
+    // background-color: black
+
+.action
+    display: flex
+    align-items: center
+    justify-content: center
+    height: 100px
+    width: 100%
+    label
+        display: flex
+        align-items: center
+        // justify-content: space-between
+        // background-color: black
+        width: 120px
+        font-weight: 600
+        input
+            margin: 10px
+
+input[type="date"]
+    &::-webkit-calendar-picker-indicator 
+        background: transparent
+        bottom: 0
+        color: transparent
+        cursor: pointer
+        height: auto
+        left: 0
+        position: absolute
+        right: 0
+        top: 0
+        width: auto
+
+.checkboxGroup
+    width: 100%
+    background-color: yellow
+    input
+        margin: 10px
+    h5
+        margin: 0 

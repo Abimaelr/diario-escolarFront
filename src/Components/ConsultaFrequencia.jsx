@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import { Modal, Button } from  'react-bootstrap';
 
+import './css/Consultar.css'
+
 function InfoCard(props) {
     const { title , sub, info, notas, freq, disciplina } = props;
     const [show, setShow] = useState(false);
@@ -34,13 +36,15 @@ function InfoCard(props) {
     return (
         <div>
             <div className="freqItem">
-                { title }
-                <Button variant="light" onClick={handleEdit}>
-                    Editar
-                </Button>
-                <Button variant="light" onClick={handleShow}>
-                    Visualizar
-                </Button>
+                <h5>{ title }</h5>
+                <div>
+                    <button class="button" variant="light" onClick={ (e) => { e.preventDefault(); handleEdit()}}>
+                        Editar
+                    </button>
+                    <button   class="button" variant="light" onClick={(e) => { e.preventDefault(); handleShow()}}>
+                        Visualizar
+                    </button>
+                </div>
             </div>
 
             <Modal show={show || edit} onHide={() => { handleClose(); setEdit(false)}} animation={false}>

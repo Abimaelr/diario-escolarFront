@@ -86,7 +86,7 @@ function ConsultaBoletim(props) {
                         <td>{s.alunoId}</td>
                         {
                             !edit ? <td>{s.nota}</td>:
-                            Tipo(disciplina.tipo, s, markBolC, markBolN, 'c', i)
+                            Tipo(disciplina.tipo, s, markBolC, markBolN, 'c', i, 'edit')
                         }
                     </tr>}) }
                 </tbody>

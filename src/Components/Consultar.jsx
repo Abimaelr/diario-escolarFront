@@ -11,7 +11,8 @@ function ConsultarFreq(props) {
     const [itens, setItens] = useState([]);
     const { turma, disciplina } = props.dados;
 
-    const consultar = () => {
+    const consultar = (e) => {
+        e.preventDefault();
         if( turma === '' || disciplina === '') return alert('Escolha a turma e disciplina!');
 
         if ( location === '/diario') {
@@ -49,14 +50,12 @@ function ConsultarFreq(props) {
 
     return (
         <div>
-            <button onClick={ consultar }>Consultar!</button>
+            <button class="button" onClick={ (e) => consultar(e) }>Consultar!</button>
             {
                 location === '/diario' ? 
                 itens.map(({ data, obj }, i) =>  <ConsultaFrequencia key={ i } title={ data } freq={ obj} disciplina={  disciplina }/>):
                 itens.map(({ data, obj }, i) =>   <ConsultaBoletim  key={ i } title={ data } notas={ obj } disciplina={  disciplina }/>)
             }
-           
-            
         </div>
     )
 }
