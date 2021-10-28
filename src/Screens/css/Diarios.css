@@ -62,7 +62,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .checkboxGroup {
   width: 100%;
-  background-color: yellow;
 }
 
 .checkboxGroup input {

@@ -17,5 +17,5 @@ export default function (t, s, markBolC, markBolN, action, index, edit) {
                 <option value="Precisa Melhorar">Precisa Melhorar</option>
             </select>)
     if (t === 'n')
-        return <input defaultValue={edit ? s.nota : 0.00} onChange={(event) => markBolN(s.alunoId, event)} type="number" min="0" defaultValue="0" max="10.0" id={id} />
+        return <input defaultValue={edit ? s.nota : 0.00} onChange={(event) => markBolN(s.alunoId, event)} type="number" min="0"  max="10.0" id={id} />
 }

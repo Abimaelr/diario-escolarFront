@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import api from '../Api/Axios';
 
-import { Container,Placeholder } from 'react-bootstrap';
+import { Container, Placeholder } from 'react-bootstrap';
 import TurmaCard from '../Components/TurmaCard';
 
 import './css/Turmas.css'
@@ -12,17 +12,18 @@ function Turmas() {
 
     useEffect(() => {
         api.get('classes/p', {})
-        .then ( ({data}) => {
-            setTurmas(data.classes)
-        })
-        .catch( ({response }) => { 
-            const { data } = response;
-            alert(data.message )}
+            .then(({ data }) => {
+                setTurmas(data.classes)
+            })
+            .catch(({ response }) => {
+                const { data } = response;
+                alert(data.message)
+            }
             )
     }, []);
-    if(turmas === []) return <Container>
+    if (turmas === []) return <Container>
         <div className="conteudo">
-            <Placeholder  animation="wave"> 
+            <Placeholder animation="wave">
 
                 <Placeholder xs={6} />
                 <br /><br />
@@ -50,13 +51,14 @@ function Turmas() {
     return (
         <Container>
             <h1>Suas Turmas</h1>
-
-            <div className="cards">
-                { turmas.map(arr => <TurmaCard key={arr._id} data={ arr }/>)}
+            <div className="cardContainer">
+                <div className="cards">
+                    {turmas.map(arr => <TurmaCard key={arr._id} data={arr} />)}
+                </div>
             </div>
         </Container>
 
-            
+
     )
 }
 

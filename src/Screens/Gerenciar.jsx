@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import DatePicker, { ReactDatePicker } from 'react-datepicker';
+
 import { Container } from 'react-bootstrap';
 import api from '../Api/Axios';
 import Inserir from '../Components/Inserir';
 import Consultar from '../Components/Consultar';
 import './css/Diarios.css';
+
+let campos = [];
+let direitos = [];
+let eixos = [];
 
 function Diarios() {
 
@@ -22,32 +26,33 @@ function Diarios() {
     const [bimestre, setBimestre] = useState("");
     const [anotacoes, setAnotacoes] = useState("");
 
-    const [campos, setCampos] = useState([]);
-    const [direitos, setDireitos] = useState([]);
-    const [eixos, setEixos] = useState([])
+    
 
-
+    let metadata = { data, turma, setStudents, disciplina, horaAula, anotacoes, students, bimestre, campos, direitos, eixos }
     useEffect(() => {
         api.get('/disciplinas').then(({ data }) => setDisciplinas(data.disciplinas)).catch(({ response }) => alert(response))
         api.get('/classes/p').then(({ data }) => setTurmas(data.classes)).catch(({ response }) => alert('response'))
-        setCampos([]);
-        setDireitos([]);
-        setEixos([]);
-    }, [disciplina])
 
-    let metadata = { data, turma, setStudents, disciplina, horaAula, anotacoes, students, bimestre, campos, direitos, eixos }
+    }, [turma, disciplina])
+
+  
 
     const buffer = ({target: {checked}} , value, i) => {
-        const func = [setCampos,setDireitos,setEixos];
+
         const vari = [campos, direitos, eixos];
+
         let buffer = vari[i];
+        console.log(checked && !buffer.includes(value))
         if (checked && !buffer.includes(value))
             buffer.push(value)
         if (!checked)
             buffer = buffer.filter(e => e !== value)
-        func[i](buffer)
+        
+        if (i === 0) campos  = buffer;
+        if (i === 1) direitos = buffer;
+        if (i === 2) eixos = buffer;
 
-        metadata = { ...metadata, campos, direitos, eixos }
+        metadata = { ...metadata, campos, direitos, eixos };
         
     }
 

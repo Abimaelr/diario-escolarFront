@@ -1,1 +1,57 @@
-/* No CSS *//*# sourceMappingURL=Settings.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+.gradeGroup {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  gap: 10px;
+  width: 80%;
+  margin: 50px auto;
+}
+
+.grade {
+  padding: 20px;
+  font-size: 30px;
+  border-radius: 5px;
+  border: solid 1px #d9d9d93d;
+  height: 500px;
+  background-color: #d9d9d9d0;
+  -webkit-transition: 400ms;
+  transition: 400ms;
+}
+
+.grade h4 {
+  color: #212121;
+}
+
+.grade:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.grade label {
+  font-size: 1.2rem;
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+}
+
+.grade label input {
+  margin-right: 10px;
+}
+
+.buttonContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 50px;
+  width: 100%;
+}
+
+.salvar {
+  width: 80%;
+  margin: auto;
+}
+/*# sourceMappingURL=Settings.css.map */

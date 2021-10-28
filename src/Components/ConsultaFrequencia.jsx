@@ -5,7 +5,7 @@ import { Modal, Button } from 'react-bootstrap';
 import './css/Consultar.css'
 
 function InfoCard(props) {
-    const { title, sub, info, notas, freq, disciplina } = props;
+    const { title, freq, disciplina } = props;
     const [show, setShow] = useState(false);
     const [edit, setEdit] = useState(false);
     const [faltas, setFaltas] = useState(0);

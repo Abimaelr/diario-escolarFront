@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Redirect, useLocation, Link } from 'react-router-dom';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Redirect, Link } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 import api from '../Api/Axios';
 import './css/Home.css'
 

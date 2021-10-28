@@ -6,30 +6,22 @@ import Tipo from '../Helpers/Tipo'
 function Nota(d, campos, direitos, eixos) {
     if (d.tipo === 'ci') return {
         nota: "Atingida",
-        DAprendizagem: direitos,
-        Experiencia: campos
     }
     if (d.tipo === 'c') return {
         nota: "Satisfatório",
-        Eixo: eixos
     }
     if (d.tipo === 'n') return {
         nota: "0.0",
     }
 }
 
-
-
 function Inserir(props) {
-    const { students, setStudents, turma, disciplina, data, horaAula, anotacoes, bimestre, campos, direitos, eixos  } = props.dados;
+    let { students, setStudents, turma, disciplina, data, horaAula, anotacoes, bimestre, campos, direitos, eixos } = props.dados;
     const date = new Date();
-
     const location = useLocation().pathname;
-
     const [student, setStudent] = useState({});
     useEffect(() => {
         setStudents([])
-        console.log('TO AQUI')
         api.get(`/classes/students/${turma}`)
             .then(({ data }) => {
                 if (location === '/diario') {
@@ -54,8 +46,8 @@ function Inserir(props) {
                             alunoId,
                             nomeCompleto,
                             codTurma,
-                            ...Nota(disciplina, campos, direitos, eixos),
-                            
+                            ...Nota(disciplina),
+
                             ultimaMdificacao: date.toISOString()
                         }
                         setStudent(buffer);
@@ -63,7 +55,8 @@ function Inserir(props) {
                 }
             }
             )
-            .catch(({ response }) => setStudents([]))
+            .catch(() => setStudents([]))
+            // eslint-disable-next-line
     }, [turma, disciplina])
 
     const markFreq = (id, { target }) => {
@@ -82,13 +75,13 @@ function Inserir(props) {
         const buffer = student;
         buffer[`${id}`] = {
             ...buffer[`${id}`],
+
             nota: target.value,
         }
         setStudent(buffer);
     }
 
     const markBolC = (id, { target }) => {
-        console.log(target.value)
         const buffer = student;
         buffer[`${id}`] = {
             ...buffer[`${id}`],
@@ -125,6 +118,7 @@ function Inserir(props) {
                     ...student[s],
                     obs: anotacoes,
                     data,
+                    campos, direitos, eixos,
                     disciplina: disciplina.nome,
                     disciplinaMeta: disciplina,
                     bimestre
