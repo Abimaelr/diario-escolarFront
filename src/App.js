@@ -13,6 +13,7 @@ import Gerenciar from "./Screens/Gerenciar";
 import Settings from "./Screens/Settings";
 
 import './App.css'
+import Turma from "./Screens/Turma";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             <div className="bg">
               <Route exact path="/turmas" component={Turmas} />
+              <Route exact path="/turmas/:id" component={Turma} />
               <Route exact path="/diario" component={Gerenciar} />
               <Route exact path="/boletim" component={Gerenciar} />
               <Route exact path="/config" component={Settings} />

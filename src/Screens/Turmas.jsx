@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import api from '../Api/Axios';
-
+import { Link } from 'react-router-dom';
 import { Container, Placeholder } from 'react-bootstrap';
 import TurmaCard from '../Components/TurmaCard';
 
@@ -53,7 +53,7 @@ function Turmas() {
             <h1>Suas Turmas</h1>
             <div className="cardContainer">
                 <div className="cards">
-                    {turmas.map(arr => <TurmaCard key={arr._id} data={arr} />)}
+                    {turmas.map(arr => <Link to={ `turmas/${arr.codTurma}` } className="link"><TurmaCard key={arr._id} data={arr} /></Link>)}
                 </div>
             </div>
         </Container>
