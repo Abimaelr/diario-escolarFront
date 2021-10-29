@@ -14,6 +14,7 @@ import Settings from "./Screens/Settings";
 
 import './App.css'
 import Turma from "./Screens/Turma";
+import Student from "./Screens/Student";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <div className="bg">
               <Route exact path="/turmas" component={Turmas} />
               <Route exact path="/turmas/:id" component={Turma} />
+              <Route exact path="/turmas/:id/:alunoId" component={Student} />
               <Route exact path="/diario" component={Gerenciar} />
               <Route exact path="/boletim" component={Gerenciar} />
               <Route exact path="/config" component={Settings} />

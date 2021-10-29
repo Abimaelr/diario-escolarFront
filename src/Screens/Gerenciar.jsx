@@ -85,7 +85,7 @@ function Diarios() {
                             <div class="select">
                                 <select required name="disciplina" id="disciplina" onChange={({ target }) => { setDisciplina(JSON.parse(target.value)) }}>
                                     <option value="">Escolha uma disciplina</option>
-                                    {disciplinas.map((e, i) => <option key={i} value={JSON.stringify(e)}>{`${e.componente} - ${e.nome}`}</option>)}
+                                    { disciplinas.map((e, i) => <option key={i} value={JSON.stringify(e)}>{`${e.componente} - ${e.nome}`}</option>) }
                                 </select>
                             </div>
                         </div>
