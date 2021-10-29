@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CAAC;EACN,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;EACnB,eAAe,EAAE,aAAa;EAC9B,gBAAgB,EAAE,OAAO;EACzB,MAAM,EAAE,GAAG;EACX,aAAa,EAAE,GAAG;EAClB,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;EACX,OAAO,EAAE,QAAQ;CAES;;AAX9B,AAUI,SAVK,CAUL,MAAM,CAAC;EACH,WAAW,EAAE,IAAI;CAAG",
+    "sources": [
+        "Consultar.sass"
+    ],
+    "names": [],
+    "file": "Consultar.css"
+}

@@ -1,0 +1,22 @@
+.freqItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #FAFAFA;
+  margin: 5px;
+  border-radius: 5px;
+  height: 50px;
+  width: 80vw;
+  padding: 0px 10px;
+}
+
+.freqItem button {
+  margin-left: 10px;
+}
+/*# sourceMappingURL=Consultar.css.map */
