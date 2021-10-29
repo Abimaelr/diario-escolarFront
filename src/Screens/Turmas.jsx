@@ -51,8 +51,8 @@ function Turmas() {
     return (
         <Container>
             <h1>Suas Turmas</h1>
-            <div className="cardContainer">
-                <div className="cards">
+            <div className="">
+                <div className="cardContainer">
                     {turmas.map(arr => <Link to={ `turmas/${arr.codTurma}` } className="link"><TurmaCard key={arr._id} data={arr} /></Link>)}
                 </div>
             </div>

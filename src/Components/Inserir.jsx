@@ -25,6 +25,7 @@ function Inserir(props) {
         api.get(`/classes/students/${turma}`)
             .then(({ data }) => {
                 if (location === '/diario') {
+                    console.log(data.students)
                     setStudents(data.students);
                     const buffer = {};
                     data.students.forEach(({ alunoId, codTurma, nomeCompleto }) => {

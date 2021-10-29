@@ -1,0 +1,26 @@
+.freqContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px;
+}
+
+.freqContainer .freqBox {
+  border: solid 1px #d9d9d93d;
+  width: 150px;
+  padding: 10px;
+  background-color: #d9d9d9d0;
+  border-radius: 5px;
+  -webkit-transition: 400ms;
+  transition: 400ms;
+}
+
+.freqContainer .freqBox:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+  cursor: pointer;
+}
+/*# sourceMappingURL=Student.css.map */

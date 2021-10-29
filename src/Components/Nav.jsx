@@ -6,46 +6,23 @@ import './css/Nav.css'
 
 function Navegacao(props) {
     const [user, setUser] = useState('');
-    const [auth, setAuth] = useState(true);
-    let location = useLocation();
+
     useEffect(()=>{
         api.get('/').then((response) => {
-            const { nome} = response.data;
+            const { nome } = response.data;
             setUser(nome)
         }).catch(({response}) => {
             const { data } = response;
-            setAuth(false);
             alert(data.message)
         })
     },[]);
 
-    if(!auth) return <Redirect to="/login" />
-    if(location.pathname !== '/Login') { return (
-        <div>
-        
-            <Navbar bg="light" variant="light">
-                <Container>
-                <Navbar.Brand><h1 className="brand">Diário de Classe 2021</h1></Navbar.Brand>
-                <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="me-auto">
-                    <Nav.Link href="/">Início</Nav.Link>
-                    <Nav.Link href="/turmas">Turmas</Nav.Link>
-                    <Nav.Link href="/diario">Frequencia</Nav.Link>
-                    <Nav.Link href="/boletim">Boletim</Nav.Link>
-                    <Nav.Link href="/config">Preferências</Nav.Link>
-                    </Nav>
-                </Navbar.Collapse >
-                <Nav>
-                    <h4 className="username">{user}</h4>
-                    {/* <Nav.Link href="#pricing">Sair</Nav.Link> */}
-                    <Link className="out" onClick={ () => localStorage.clear() } to="/Login">Sair</Link>
-                </Nav>
-                </Container>
-            </Navbar>
-
-        </div>
-    )}
-    return <div></div>
+     return (
+        <header className="header">
+            <img src="https://www.joaopessoa.pb.gov.br/wp-content/themes/joaopessoavinte/assets/images/logo-pmjp-color-horizontal.png" alt="João Pessoa Logo" />
+            <h6 className="userName">{ user }</h6>
+        </header>
+    )
 }
 
 export default Navegacao
