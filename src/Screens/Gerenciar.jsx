@@ -30,7 +30,7 @@ function Diarios() {
 
     let metadata = { data, turma, setStudents, disciplina, horaAula, anotacoes, students, bimestre, campos, direitos, eixos }
     useEffect(() => {
-        api.get('/disciplinas').then(({ data }) => setDisciplinas(data.disciplinas)).catch(({ response }) => alert(response))
+        api.get('/disciplinas').then(({ data }) => setDisciplinas(data.disciplinas)).catch(({ response }) => alert('Disciplinas'))
         api.get('/classes/p').then(({ data }) => setTurmas(data.classes)).catch(({ response }) => alert('response'))
 
     }, [turma, disciplina])

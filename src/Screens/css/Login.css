@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+.loading {
+  height: 1000px;
+}
+
 .login {
   margin: 0;
   padding: 0;
@@ -59,7 +63,7 @@
 
 .loginBox h1 {
   font-family: 'Roboto', sans-serif;
-  color: #C82333;
+  color: #FF4D4D;
   font-size: 3rem;
   font-weight: 800;
 }

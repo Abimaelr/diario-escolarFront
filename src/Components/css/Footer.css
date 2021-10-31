@@ -1,7 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap");
+.loading {
+  height: 1000px;
+}
+
 .footer {
   margin-top: 50px;
-  background-color: #C82333;
+  background-color: #FF4D4D;
   padding-bottom: 48px;
 }
 

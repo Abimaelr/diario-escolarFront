@@ -19,7 +19,7 @@ function Navegacao(props) {
 
      return (
         <header className="header">
-            <img src="https://www.joaopessoa.pb.gov.br/wp-content/themes/joaopessoavinte/assets/images/logo-pmjp-color-horizontal.png" alt="João Pessoa Logo" />
+            <h5  className="userName">Diário de Classe 2021</h5>
             <h6 className="userName">{ user }</h6>
         </header>
     )

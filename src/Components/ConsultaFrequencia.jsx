@@ -26,6 +26,7 @@ function InfoCard(props) {
         freq.forEach((s, i) => {
             if (!s.presenca) f++;
         })
+        console.log(freq)
         setFaltas(f);
     }, [edit, freq, show]);
 

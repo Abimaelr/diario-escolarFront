@@ -4,6 +4,7 @@ import api from '../Api/Axios';
 import { Link } from 'react-router-dom';
 import { Container, Placeholder } from 'react-bootstrap';
 import TurmaCard from '../Components/TurmaCard';
+import jwt from 'jsonwebtoken';
 
 import './css/Turmas.css'
 
@@ -11,7 +12,8 @@ function Turmas() {
     const [turmas, setTurmas] = useState([]);
 
     useEffect(() => {
-        api.get('classes/p', {})
+        const { permissions } = jwt.decode(localStorage.getItem('token'));
+        api.get(`classes/${permissions === 'd' ? '' : 'p'}`)
             .then(({ data }) => {
                 setTurmas(data.classes)
             })
@@ -21,6 +23,7 @@ function Turmas() {
             }
             )
     }, []);
+
     if (turmas === []) return <Container>
         <div className="conteudo">
             <Placeholder animation="wave">

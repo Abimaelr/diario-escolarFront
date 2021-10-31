@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap");
+.loading {
+  height: 1000px;
+}
+
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11,7 +15,7 @@
           justify-content: space-between;
   padding: 20px 10%;
   width: 100%;
-  background-color: #C82333;
+  background-color: #FF4D4D;
   margin-bottom: 50px;
 }
 

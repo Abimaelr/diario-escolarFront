@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+.loading {
+  height: 1000px;
+}
+
 .links {
   display: -ms-grid;
   display: grid;

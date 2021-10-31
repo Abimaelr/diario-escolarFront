@@ -12,6 +12,7 @@ function Settings() {
     useEffect(() => {
         api.get('disciplinas/grade').then(({ data }) => {
             setDisciplinas(data)
+        
             setGrade(Object.keys(data))
             api.get('disciplinas/').then(({ data }) => {
                 setDisc(data.disciplinas)

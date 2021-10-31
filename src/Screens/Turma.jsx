@@ -21,6 +21,12 @@ function Turma() {
         // api.get('/disciplinas').then(({ data }) => setDisciplinas(data.disciplinas)).catch(({ response }) => alert(response))
     }, [id])
 
+    // if(students.length === 0) return (
+    //     <div className="loading">
+    //         <p>Carregando...</p>
+    //     </div>
+    // )
+
     return (
         <Container>
             <header>

@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap");
+.loading {
+  height: 1000px;
+}
+
 table, th, td {
   border: 1px solid #FF4D4D;
 }

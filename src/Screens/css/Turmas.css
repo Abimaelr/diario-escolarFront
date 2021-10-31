@@ -1,9 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap");
+.loading {
+  height: 1000px;
+}
+
 .cardContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  gap: 10px;
 }
 /*# sourceMappingURL=Turmas.css.map */
