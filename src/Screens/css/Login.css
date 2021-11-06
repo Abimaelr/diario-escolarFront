@@ -15,7 +15,7 @@
 .imageLogin {
   width: 100%;
   height: 100%;
-  background-image: url("../img/capa.png");
+  background-image: url("../img/capa.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repea;
@@ -63,7 +63,7 @@
 
 .loginBox h1 {
   font-family: 'Roboto', sans-serif;
-  color: #FF4D4D;
+  color: #185579;
   font-size: 3rem;
   font-weight: 800;
 }
@@ -72,7 +72,7 @@
   margin: auto;
   width: 100%;
   padding: 10px;
-  background-color: #FF4D4D;
+  background-color: #717171;
   border-radius: 5px;
   color: #D1C4E9;
 }

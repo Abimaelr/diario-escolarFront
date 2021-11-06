@@ -56,7 +56,6 @@ function Student() {
                                         <td>{boletim[key][2] !== undefined ? boletim[key][2].nota : ''}</td>
                                         <td>{boletim[key][3] !== undefined ? boletim[key][3].nota : ''}</td>
                                         <td>{boletim[key][4] !== undefined ? boletim[key][4].nota : ''}</td>
-
                                     </tr>)
                                 })}
                         </tbody>

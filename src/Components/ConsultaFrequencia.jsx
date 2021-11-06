@@ -26,7 +26,6 @@ function InfoCard(props) {
         freq.forEach((s, i) => {
             if (!s.presenca) f++;
         })
-        console.log(freq)
         setFaltas(f);
     }, [edit, freq, show]);
 
@@ -38,6 +37,7 @@ function InfoCard(props) {
         <div>
             <div className="freqItem">
                 <h5>{title}</h5>
+                <h6>{freq[0].obs}</h6>
                 <div>
                     <button class="button" variant="light" onClick={(e) => { e.preventDefault(); handleEdit() }}>
                         Editar
