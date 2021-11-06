@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap");
+.loading {
+  height: 1000px;
+}
+
+.turmaBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.turmaBox label {
+  background-color: #d9d9d9d0;
+  padding: 10px;
+  border-radius: 5px;
+  width: auto;
+  margin: 5px;
+  -webkit-transition: 500ms;
+  transition: 500ms;
+}
+
+.turmaBox label:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+.turmaBox label input {
+  margin: 5px;
+}
+/*# sourceMappingURL=G.css.map */
