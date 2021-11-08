@@ -33,7 +33,7 @@ function App() {
             <Route exact path="/turmas/:id" component={Turma} />
             <Route exact path="/turmas/:id/:alunoId" component={Student} />
             <Route exact path="/gestudantes" component={GStudents} />
-            <Route exact path="/gturmas" component={Gturmas} />
+            <Route exact path="/gturma" component={Gturmas} />
             <Route exact path="/gprofessores" component={GProfessores} />
             <Route exact path="/diario" component={Gerenciar} />
             <Route exact path="/boletim" component={Gerenciar} />

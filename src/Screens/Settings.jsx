@@ -12,10 +12,12 @@ function Settings() {
     useEffect(() => {
         api.get('disciplinas/grade').then(({ data }) => {
             setDisciplinas(data)
-        
             setGrade(Object.keys(data))
             api.get('disciplinas/').then(({ data }) => {
-                setDisc(data.disciplinas)
+                if (data.disciplinas.length > 0)
+                    setDisc(data.disciplinas)
+                else
+                    setDisc([]);
             })
         })
     }, []);
@@ -31,41 +33,44 @@ function Settings() {
 
     const salvarAlt = () => {
         const { userId } = jwt.decode(localStorage.getItem('token'));
+
         api.put('/disciplinas', {
             userId,
             disciplinas: disciplinasProf
         }).then(data => alert('Alterações Salvas!')).catch(e => alert('Erro ao salvar Alterações'))
     }
-
-    return (
-        <div>
-            <div class="buttonContainer">
-                <button class="button salvar" onClick={salvarAlt}>Salvar alterações!</button>
-            </div>
-            <div className="gradeGroup">
-                {disciplinasProf !== '' ? grade.map((g, i) =>
-                    <>
-                        <div className="grade">
-                            <h4 key={i}>{g}</h4>
-                            {
-                                disciplinas[g].map((d, k) => {
-                                    const state = disciplinasProf.map(e => `${e.componente} ${e.nome}`).includes(`${d.componente} ${d.nome}`);
-                                    return (<>
-                                        <label key={d + 'l'} htmlFor={`${g} ${k}`}>
-                                            <input defaultChecked={state} key={d} type="checkbox" name="" id={`${g} ${k}`} onChange={({ target }) => bufferDisciplinas(target, d)} />
-                                            {d.nome}
-                                        </label>
-                                        <br key={d + 'la'} />
-                                    </>)
+    if (disciplinasProf === '') return <> </>;
+    else
+        return (
+            <div>
+                <div className="buttonContainer">
+                    <button className="button salvar" onClick={salvarAlt}>Salvar alterações!</button>
+                </div>
+                <div className="gradeGroup">
+                    {disciplinasProf !== '' ? grade.map((g, i) =>
+                        <>
+                            <div className="grade">
+                                <h4 key={i}>{g}</h4>
+                                {
+                                    disciplinas[g].map((d, k) => {
+                                        let state = disciplinasProf.map(e => `${e.componente} ${e.nome}`).includes(`${d.componente} ${d.nome}`);
+                                        console.log(state)
+                                        return (<>
+                                            <label key={d + 'l'} htmlFor={`${g} ${k}`}>
+                                                <input defaultChecked={state} key={d} type="checkbox" id={`${g} ${k}`} onChange={({ target }) => bufferDisciplinas(target, d)} />
+                                                {d.nome}
+                                            </label>
+                                            <br key={d + 'la'} />
+                                        </>)
+                                    }
+                                    )
                                 }
-                                )
-                            }
-                        </div>
-                    </>
-                ) : ''}
+                            </div>
+                        </>
+                    ) : ''}
+                </div>
             </div>
-        </div>
-    )
+        )
 }
 
 export default Settings

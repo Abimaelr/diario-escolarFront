@@ -73,7 +73,7 @@ function Gprofessores(props) {
                                     setETurma(data[0].turmas);
                                     seteUserId(data[0].userId);
                                 }
-                            }).catch(() => {
+                            }).catch((errors) => {
                                 alert("Professor não encontrado")
                             });
                     }}>Procurar</button>
