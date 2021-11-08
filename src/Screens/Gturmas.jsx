@@ -28,7 +28,7 @@ function GTurmas(props) {
                 <div className="form">
                     <input class="input is-primary" type="text" onChange={({ target }) => setcodTurma(target.value)} placeholder="Código da Turma"></input>
                     <input class="input is-primary" type="text" onChange={({ target }) => setnomeTurma(target.value)} placeholder="Nome da Turma"></input>
-                    <div className="turno">
+                    <div className="label">
                         <label htmlFor="turno">Turno</label>
                         <div class="select">
                             <select onChange={({ target }) => setTurno(target.value)} id="turno">

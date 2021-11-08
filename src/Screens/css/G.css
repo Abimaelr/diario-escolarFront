@@ -55,17 +55,22 @@
   margin: 5px;
 }
 
-.turno {
+.label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 170px;
+  min-width: 180px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+#data {
+  width: 150px;
+  margin: 0 5px;
 }
 
 .form {

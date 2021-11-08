@@ -20,7 +20,6 @@
   border-radius: 5px;
   border: solid 1px #d9d9d93d;
   height: 500px;
-  background-color: #d9d9d9d0;
   -webkit-transition: 400ms;
   transition: 400ms;
 }
@@ -44,6 +43,44 @@
 
 .grade label input {
   margin-right: 10px;
+}
+
+.grade:nth-child(1) {
+  background-color: #92dc00;
+}
+
+.grade:nth-child(2) {
+  background-color: #ff000072;
+}
+
+.grade:nth-child(3) {
+  background-color: #ddff00;
+}
+
+.grade:nth-child(4) {
+  background-color: #003976;
+  color: white;
+}
+
+.grade:nth-child(4) h4 {
+  color: white;
+}
+
+.grade:nth-child(5) {
+  background-color: #8d5cc5;
+}
+
+.grade:nth-child(6) {
+  background-color: #ba378a;
+}
+
+.grade:nth-child(7) {
+  background-color: #c02323;
+  color: white;
+}
+
+.grade:nth-child(7) h4 {
+  color: white;
 }
 
 .buttonContainer {

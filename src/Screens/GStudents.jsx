@@ -47,8 +47,11 @@ function GStudents(props) {
                 <div className="form">
                     <input class="input is-primary" type="text" onChange={({ target }) => setnomeCompleto(target.value)} placeholder="Nome Completo"></input>
                     <input class="input is-primary" type="text" onChange={({ target }) => setalunoId(target.value)} placeholder="Id Aluno"></input>
-                    <input class="input is-primary" type="date" onChange={({ target }) => setNascimento(target.value)} placeholder="Data de Nascimento"></input>
-                    <div className="">
+                    <div className="label">
+                        <label htmlFor="data">Nascimento</label>
+                        <input class="input is-primary" id="data" type="date" onChange={({ target }) => setNascimento(target.value)} placeholder="Data de Nascimento"></input>
+                    </div>
+                    <div className="label">
                         <label htmlFor="turma1">Turma</label>
                         <div class="select">
                             <select onChange={({ target }) => setcodTurma(target.value)} id="turma1">
@@ -82,7 +85,7 @@ function GStudents(props) {
                 <h2>Transferir Estudante</h2>
                 <div>
                     <div className="search">
-                    <input class="input is-primary" type="text" onChange={({ target }) => setalunoIds(target.value)} placeholder="Id Aluno"></input>
+                        <input class="input is-primary" type="text" onChange={({ target }) => setalunoIds(target.value)} placeholder="Id Aluno"></input>
                         <button className="button" onClick={() => {
                             api.get(`/student?alunoId=${alunoIdS}`)
                                 .then((response) => {

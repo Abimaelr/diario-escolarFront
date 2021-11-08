@@ -54,7 +54,6 @@ function Settings() {
                                 {
                                     disciplinas[g].map((d, k) => {
                                         let state = disciplinasProf.map(e => `${e.componente} ${e.nome}`).includes(`${d.componente} ${d.nome}`);
-                                        console.log(state)
                                         return (<>
                                             <label key={d + 'l'} htmlFor={`${g} ${k}`}>
                                                 <input defaultChecked={state} key={d} type="checkbox" id={`${g} ${k}`} onChange={({ target }) => bufferDisciplinas(target, d)} />

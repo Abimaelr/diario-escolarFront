@@ -1,6 +1,6 @@
 @import '../../_default'
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-    
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap')
+
 .gradeGroup
     display: grid
     grid-template-columns: auto auto auto
@@ -14,7 +14,7 @@
     border-radius: 5px
     border: solid 1px #d9d9d93d
     height: 500px
-    background-color: #d9d9d9d0
+    // background-color: #d9d9d9d0
     transition: 400ms
     h4
         color: $primary-text-color
@@ -26,6 +26,27 @@
         align-self: start
         input
             margin-right: 10px
+    &:nth-child(1)
+        background-color: #92dc00
+    &:nth-child(2)
+        background-color: #ff000072
+    &:nth-child(3)
+        background-color: #ddff00
+    &:nth-child(4)
+        background-color: #003976
+        color: white
+        h4
+            color: white
+    &:nth-child(5)
+        background-color: #8d5cc5
+    &:nth-child(6)
+        background-color: #ba378a
+    &:nth-child(7)
+        background-color: #c02323
+        color: white
+        h4
+            color: white
+
 .buttonContainer
     display: flex
     margin: 50px
