@@ -51,6 +51,31 @@ function ConsultaBoletim(props) {
                     <Modal.Title>Frequência do dia: {title}
                         <br />
                         <p>{disciplina.nome}</p>
+                        <hr />
+
+                        {
+                            notas[0].campos.length > 0 ?
+                                <>
+                                    <h3>Campos</h3>
+                                    {notas[0].campos.map(v => <h6>{v}</h6>)}
+                                </> : ''
+                        }
+                        <hr />
+                        {
+                            notas[0].eixos.length > 0 ?
+                                <>
+                                    <h3>Eixos temáticos</h3>
+                                    {notas[0].eixos.map(v => <h6>{v}</h6>)}
+                                </> : ''
+                        }
+                          {
+                            notas[0].direitos.length > 0 ?
+                                <>
+                                    <h3>Direitos de Aprendizagem</h3>
+                                    {notas[0].direitos.map(v => <h6>{v}</h6>)}
+                                </> : ''
+                        }
+
                     </Modal.Title>
                 </Modal.Header>
                 <table>

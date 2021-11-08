@@ -26,7 +26,7 @@ function Diarios() {
     const [bimestre, setBimestre] = useState("");
     const [anotacoes, setAnotacoes] = useState("");
 
-    
+
 
     let metadata = { data, turma, setStudents, disciplina, horaAula, anotacoes, students, bimestre, campos, direitos, eixos }
     useEffect(() => {
@@ -35,25 +35,24 @@ function Diarios() {
 
     }, [turma, disciplina])
 
-  
 
-    const buffer = ({target: {checked}} , value, i) => {
+
+    const buffer = ({ target: { checked } }, value, i) => {
 
         const vari = [campos, direitos, eixos];
-
         let buffer = vari[i];
-        console.log(checked && !buffer.includes(value))
+
         if (checked && !buffer.includes(value))
             buffer.push(value)
         if (!checked)
             buffer = buffer.filter(e => e !== value)
-        
-        if (i === 0) campos  = buffer;
+
+        if (i === 0) campos = buffer;
         if (i === 1) direitos = buffer;
         if (i === 2) eixos = buffer;
 
         metadata = { ...metadata, campos, direitos, eixos };
-        
+
     }
 
     return (
@@ -84,30 +83,32 @@ function Diarios() {
                         <div class="control">
                             <div class="select">
                                 <select required name="disciplina" id="disciplina" onChange={({ target }) => { setDisciplina(JSON.parse(target.value)) }}>
-                                    <option value="">Escolha uma disciplina</option>
-                                    { disciplinas.map((e, i) => <option key={i} value={JSON.stringify(e)}>{`${e.componente} - ${e.nome}`}</option>) }
+                                    <option disabled selected value="">Escolha uma disciplina</option>
+                                    {disciplinas.map((e, i) => <option key={i} value={JSON.stringify(e)}>{`${e.componente} - ${e.nome}`}</option>)}
                                 </select>
                             </div>
                         </div>
                         {
                             action !== "consultar" ?
                                 <>
-                                    <div className="checkboxGroup">
-                                        {disciplina.eixos ? <h5>Eixos temáticos</h5> : ''}
-                                        {disciplina.eixos ? disciplina.eixos.map(e => <label class="checkbox">
-                                            <input type="checkbox" onChange={({target}) => buffer({target}, e, 2)} value={ e }/> {e} </label>) : ''}
-                                    </div>
-                                    <div className="checkboxGroup">
-                                        {disciplina.CampExp ? <h5>Campos de experiência</h5> : ''}
-                                        {disciplina.CampExp ? disciplina.CampExp.map(e => <label class="checkbox">
-                                            <input type="checkbox" onChange={({target}) => buffer({target}, e, 0)}  value={ e } /> {e} </label>) : ''}
+                                    {location.pathname !== "/diario" ? <>
+                                        <div className="checkboxGroup">
+                                            {disciplina.eixos && turma !== "" ? <h5>Eixos temáticos</h5> : ''}
+                                            {disciplina.eixos && turma !== "" ? disciplina.eixos.map(e => <label class="checkbox">
+                                                <input type="checkbox" onChange={({ target }) => buffer({ target }, e, 2)} value={e} /> {e} </label>) : ''}
+                                        </div>
+                                        <div className="checkboxGroup">
+                                            {disciplina.CampExp && turma !== "" ? <h5>Campos de experiência</h5> : ''}
+                                            {disciplina.CampExp && turma !== "" ? disciplina.CampExp.map(e => <label class="checkbox">
+                                                <input type="checkbox" onChange={({ target }) => buffer({ target }, e, 0)} value={e} /> {e} </label>) : ''}
 
-                                    </div>
-                                    <div className="checkboxGroup">
-                                        {disciplina.DireitosAp ? <h5>Direitos de Aprendizado</h5> : ''}
-                                        {disciplina.DireitosAp ? disciplina.DireitosAp.map(e => <label class="checkbox">
-                                            <input type="checkbox" value={ e } onChange={({target}) => buffer({target}, e, 1)} /> {e} </label>) : ''}
-                                    </div>
+                                        </div>
+                                        <div className="checkboxGroup">
+                                            {disciplina.DireitosAp && turma !== "" ? <h5>Direitos de Aprendizado</h5> : ''}
+                                            {disciplina.DireitosAp && turma !== "" ? disciplina.DireitosAp.map(e => <label class="checkbox">
+                                                <input type="checkbox" value={e} onChange={({ target }) => buffer({ target }, e, 1)} /> {e} </label>) : ''}
+                                        </div>
+                                    </>: ''}
                                     <input required type="date" id="date" onChange={({ target }) => { setData(target.value) }} />
                                     <div class="control">
                                         <div class="select">

@@ -57,7 +57,7 @@ function Inserir(props) {
             }
             )
             .catch(() => setStudents([]))
-            // eslint-disable-next-line
+        // eslint-disable-next-line
     }, [turma, disciplina])
 
     const markFreq = (id, { target }) => {
@@ -134,7 +134,10 @@ function Inserir(props) {
 
     if (students.length > 0) return (
         <div>
-            <button class="button" type="submit" onClick={registrar}>Registrar!</button>
+            <div className="submit">
+
+                <button class="button" type="submit" onClick={registrar}>Registrar!</button>
+            </div>
             <table class="table">
                 <thead>
                     <tr>
