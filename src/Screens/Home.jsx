@@ -19,16 +19,20 @@ function Home(props) {
         <div>
             <Container>
                 <div className="links">
-                    <Link className="link seletor a" to="/turmas"><h1>Minhas Turmas</h1></Link>
-                    <Link className="link seletor" to="/diario"><h1 >Registro de Aula</h1></Link>
+                    <Link className="link seletor" to="/config"><h3 >Meus Componentes Curriculares</h3></Link>
+                    <Link className="link seletor" to="/boletim"><h3 >Registro de Notas/Competências</h3></Link>
+                    <Link className="link seletor" to="/diario"><h3 >Registro de Aula</h3></Link>
                     {permissions === 'd' ? <>
-                        <Link className="link seletor" to={{ pathname: "/gestudantes", state: { permissions } }}><h1>Gerenciar Estudantes</h1></Link>
-                        <Link className="link seletor" to={{ pathname: "/gturma", state: { permissions } }}><h1 >Criar Turma</h1></Link>
-                        <Link className="link seletor" to={{ pathname: "/gprofessores", state: { permissions } }}><h1 >Gerenciar Professores</h1></Link>
+                        <Link className="link seletor" to={{ pathname: "/gestudantes", state: { permissions } }}><h3>Gerenciar Estudantes</h3></Link>
+                        <Link className="link seletor" to={{ pathname: "/gturma", state: { permissions } }}><h3 >Criar Turma</h3></Link>
+                        <Link className="link seletor" to={{ pathname: "/gprofessores", state: { permissions } }}><h3 >Gerenciar Professores</h3></Link>
                     </> : <></>}
-                    <Link className="link seletor" to="/boletim"><h1 >Registro de Notas/Competências</h1></Link>
-                    <Link className="link seletor b" to="/config"><h1 >Meus Componentes Curriculares</h1></Link>
-                    <Link className="link out seletor" onClick={() => localStorage.clear()} to="/Login"><div >Sair</div></Link>
+
+                    <Link className="link seletor" to="/turmas"><h3>Minhas Turmas</h3></Link>
+                </div>
+                <div className="secondary">
+
+                    <Link className="sair" onClick={() => localStorage.clear()} to="/Login"><div >Sair</div></Link>
                 </div>
             </Container>
         </div>

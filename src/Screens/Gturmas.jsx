@@ -3,6 +3,8 @@ import { Container } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import api from '../Api/Axios';
 
+import './css/G.css'
+
 function GTurmas(props) {
     const [redirect, setRedirect] = useState(false)
     const [permissions, setPermissions] = useState('');
@@ -22,11 +24,11 @@ function GTurmas(props) {
     else if (permissions === 'd')
         return (
             <Container>
-                <div>
-                    <h1>Criar Turma</h1>
+                <h3>Criar Turma</h3>
+                <div className="form">
                     <input class="input is-primary" type="text" onChange={({ target }) => setcodTurma(target.value)} placeholder="Código da Turma"></input>
                     <input class="input is-primary" type="text" onChange={({ target }) => setnomeTurma(target.value)} placeholder="Nome da Turma"></input>
-                    <div className="">
+                    <div className="turno">
                         <label htmlFor="turno">Turno</label>
                         <div class="select">
                             <select onChange={({ target }) => setTurno(target.value)} id="turno">
@@ -37,7 +39,7 @@ function GTurmas(props) {
                             </select>
                         </div>
                     </div>
-                    <button onClick={() => {
+                    <button className="button" onClick={() => {
                         api.post('/classes', {
                             codTurma,
                             nomeTurma,

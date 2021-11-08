@@ -7,7 +7,7 @@ import { useParams, Link, useLocation } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
 function Turma() {
-    const [students, setStudents] = useState([]);
+    const [students, setStudents] = useState();
     // const [disciplina, setDisciplina] = useState({});
     // const [disciplinas, setDisciplinas] = useState([]);
 
@@ -26,28 +26,17 @@ function Turma() {
     //         <p>Carregando...</p>
     //     </div>
     // )
-
-    return (
-        <Container>
-            <header>
-                {/* <div class="control">
-                    <div class="select">
-                        <select required name="disciplina" id="disciplina" onChange={({ target }) => { setDisciplina(JSON.parse(target.value)) }}>
-                            <option value="">Escolha uma disciplina</option>
-                            {disciplinas.map((e, i) => <option key={i} value={JSON.stringify(e)}>{`${e.componente} - ${e.nome}`}</option>)}
-                        </select>
-                    </div>
-                    <div>
-
-                    </div>
-                </div> */}
-
-            </header>
-            <div className="studentsContainer">
-                {students.map((e) => <Link className="link" to={`${location}/${e.alunoId}`}> <div className="studentItem"><h6>{e.nomeCompleto}</h6></div> </Link>)}
-            </div>
-        </Container>
-    )
+    if (!students) return <h1>Carregando...</h1>
+    else
+        return (
+            <Container>
+                <div className="studentsContainer">
+                    {students.length === 0? <h2>Sem alunos</h2>: <h2>Alunos</h2> }
+                    <br />
+                    {students.map((e) => <Link className="link" to={`${location}/${e.alunoId}`}> <div className="studentItem"><h6>{e.nomeCompleto}</h6></div> </Link>)}
+                </div>
+            </Container>
+        )
 }
 
 export default Turma

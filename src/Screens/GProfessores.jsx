@@ -61,10 +61,10 @@ function Gprofessores(props) {
     else if (permissions === 'd')
         return (
             <Container>
-                <h1>Editar professor</h1>
+                <h3>Editar professor</h3>
                 <div className="search" action="">
                     <input required onChange={({ target }) => setMatricula(target.value)} class="input is-hovered" type="text" placeholder="Matrícula" />
-                    <button onClick={() => {
+                    <button className="button" onClick={() => {
                         api.get(`professores?profId=${matricula}`)
                             .then((response) => {
                                 const { data } = response;
@@ -90,21 +90,23 @@ function Gprofessores(props) {
                             </label>
                         ))}
                     </div>
-                    <button
-                        onClick={() => {
-                            api.put('/professores', {
-                                userId: eUserId,
-                                turmas: eTurma,
-                                profId: matricula
-                            }).then(({ data }) => alert(data.message))
-                        }
-                        }
-                    >Salvar alterações!</button>
+                    <div className="submit">
+                        <button className="button"
+                            onClick={() => {
+                                api.put('/professores', {
+                                    userId: eUserId,
+                                    turmas: eTurma,
+                                    profId: matricula
+                                }).then(({ data }) => alert(data.message))
+                            }
+                            }
+                        >Salvar alterações!</button>
+                    </div>
                 </> : <></>
                 }
                 <hr />
 
-                <h1>Criar professor</h1>
+                <h3>Criar professor</h3>
                 <form class="control">
                     <input required class="input is-hovered" onChange={({ target }) => setNome(target.value)} type="text" placeholder="Nome" />
                     <input required class="input is-hovered" onChange={({ target }) => setUser(target.value)} type="email" placeholder="email" />
@@ -118,19 +120,21 @@ function Gprofessores(props) {
                             </label>
                         ))}
                     </div>
-                    <button onClick={(e) => {
-                        e.preventDefault();
+                    <div className="submit">
+                        <button className="button" onClick={(e) => {
+                            e.preventDefault();
 
-                        api.post('/professores', {
-                            nome,
-                            userId,
-                            profId,
-                            turmas: Cturmas
+                            api.post('/professores', {
+                                nome,
+                                userId,
+                                profId,
+                                turmas: Cturmas
 
-                        }).then(response => alert(response.data)).catch(error => alert(error.response.data))
-                    }}>
-                        Criar Professor!
-                    </button>
+                            }).then(response => alert(response.data)).catch(error => alert(error.response.data))
+                        }}>
+                            Criar Professor!
+                        </button>
+                    </div>
                 </form>
             </Container>
         )

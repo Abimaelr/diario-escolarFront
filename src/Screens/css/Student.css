@@ -1,3 +1,7 @@
+.freq {
+  min-height: 60vh;
+}
+
 .freqContainer {
   display: -webkit-box;
   display: -ms-flexbox;
