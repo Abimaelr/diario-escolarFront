@@ -46,28 +46,33 @@
 }
 
 .grade:nth-child(1) {
-  background-color: #92dc00;
+  background-color: #1324AB;
+  color: white;
+}
+
+.grade:nth-child(1) h4 {
+  color: white;
 }
 
 .grade:nth-child(2) {
-  background-color: #ff000072;
+  background-color: #023982;
+  color: white;
+}
+
+.grade:nth-child(2) h4 {
+  color: white;
 }
 
 .grade:nth-child(3) {
-  background-color: #ddff00;
+  background-color: #38B6FF;
 }
 
 .grade:nth-child(4) {
-  background-color: #003976;
-  color: white;
-}
-
-.grade:nth-child(4) h4 {
-  color: white;
+  background-color: #4F70B8;
 }
 
 .grade:nth-child(5) {
-  background-color: #8d5cc5;
+  background-color: #247BBB;
 }
 
 .grade:nth-child(6) {
@@ -75,12 +80,7 @@
 }
 
 .grade:nth-child(7) {
-  background-color: #c02323;
-  color: white;
-}
-
-.grade:nth-child(7) h4 {
-  color: white;
+  background-color: #5DA3FF;
 }
 
 .buttonContainer {
