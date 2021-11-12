@@ -1,6 +1,7 @@
 @import '../../_default'
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+
 .login
     // display: flex
     margin: 0
@@ -16,7 +17,7 @@
     background-size: cover
     background-position: center
     background-repeat: no-repea
-    @media screen and (max-width: 600px)
+    @media screen and (max-width: 400px)
         display: none
         background: black
     
@@ -29,6 +30,7 @@
     background-size: cover
     background-position-x: 25vw
     background-repeat: no-repeat
+    
     form
         margin: auto
     label
@@ -46,12 +48,15 @@
     h1
         font-family: 'Roboto', sans-serif
         color: $primary-color
-        font-size: 3rem
+        
         font-weight: 800
+    @media screen and (max-width: 400px)
+        h1
+            font-size: 180%
 #submit
     margin: auto
     width: 100%
-    padding: 10px
+    // padding: 10px
     background-color: $primary-color-dark
     border-radius: 5px
     color: $primary-color-light

@@ -21,7 +21,7 @@
   background-repeat: no-repea;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 400px) {
   .imageLogin {
     display: none;
     background: black;
@@ -64,14 +64,18 @@
 .loginBox h1 {
   font-family: 'Roboto', sans-serif;
   color: #023982;
-  font-size: 3rem;
   font-weight: 800;
+}
+
+@media screen and (max-width: 400px) {
+  .loginBox h1 {
+    font-size: 180%;
+  }
 }
 
 #submit {
   margin: auto;
   width: 100%;
-  padding: 10px;
   background-color: #717171;
   border-radius: 5px;
   color: #D1C4E9;

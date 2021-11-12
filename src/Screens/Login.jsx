@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import api from '../Api/Axios';
 import './css/Login.css'
@@ -30,8 +30,7 @@ function Login() {
     if (redirect) return <Redirect to="/" />
     else
         return (
-
-            <div>
+            <Container fluid>
                 <Row className="login">
                     <Col sm={7}>
                         <div className="imageLogin" />
@@ -53,7 +52,7 @@ function Login() {
                         </div>
                     </Col>
                 </Row>
-            </div>
+            </Container>
         )
 }
 
