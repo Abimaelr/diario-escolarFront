@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000"
+  baseURL: "http://diario-escolar-backend.herokuapp.com/"
 });
 
 api.defaults.headers.common['Authorization'] = localStorage.getItem('token');
