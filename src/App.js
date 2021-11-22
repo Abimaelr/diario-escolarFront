@@ -21,9 +21,12 @@ import GStudents from "./Screens/GStudents";
 import Gturmas from "./Screens/Gturmas";
 import GProfessores from "./Screens/GProfessores";
 
+import { ToastContainer } from 'react-toastify';
+
 function App() {
   return (
     <div className="App">
+      < ToastContainer />
       <Router>
         <Switch>
           <Route exact path="/login" component={Login} />

@@ -22,7 +22,7 @@ function Navegacao(props) {
     else
         return (
             <header className="header">
-                <h5 className="userName">Diário de Classe 2021</h5>
+                <Link to="/" style={{textDecoration:"none"}}><h5 className="userName">Diário de Classe 2021</h5></Link>
                 <h6 className="userName">{user}</h6>
             </header>
         )

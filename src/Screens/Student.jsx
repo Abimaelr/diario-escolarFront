@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import api from '../Api/Axios';
-
+import { Breadcrumb } from 'antd';
 import { useParams } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import './css/Student.css';
 
 function Student() {
     const [student, setStudent] = useState();
+    const [turma, setTurma] = useState('');
     const [boletim, setBol] = useState();
     const [freq, setFreq] = useState();
-    const { alunoId } = useParams();
+    const { alunoId, id } = useParams();
     useEffect(() => {
         api.get(`/student/${alunoId}`).then(({ data: { student } }) => setStudent(student[0]))
             .then(() => {
                 api.get(`/disciplinas/diario/q/?alunoId=${alunoId}`).then((r) => setFreq(r.data));
                 api.get(`/disciplinas/boletim/q/?alunoId=${alunoId}`).then((r) => setBol(r.data));
             }).catch(() => alert("Erro no servidor!"))
+
+        api.get(`/classes/c?classCode=${id}`)
+            .then(({ data }) => setTurma(data))
+            .catch(() => alert('Erro'))
     }, [alunoId]);
 
 
@@ -25,6 +31,22 @@ function Student() {
             <Container>
                 <div className="freq">
                     <h4>{student.nomeCompleto}</h4>
+                    <div className="bread">
+                        <Breadcrumb>
+                            <Breadcrumb.Item href="">
+                                <Link to="/">Início</Link>
+                            </Breadcrumb.Item>
+                            <Breadcrumb.Item href="">
+                                <Link to="/turmas">Minhas Turmas</Link>
+                            </Breadcrumb.Item>
+                            <Breadcrumb.Item>
+                                <Link to={`/turmas/${turma.codTurma}`}>{turma.nomeTurma}</Link>
+                            </Breadcrumb.Item>
+                            <Breadcrumb.Item>
+                                {student.nomeCompleto}
+                            </Breadcrumb.Item>
+                        </Breadcrumb>
+                    </div>
                     <div className="freqContainer">
                         {
                             Object.keys(freq).map((key) => {

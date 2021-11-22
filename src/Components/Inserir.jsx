@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import api from '../Api/Axios';
 import { useLocation } from 'react-router-dom';
 import Tipo from '../Helpers/Tipo'
+import { toast } from 'react-toastify';
 
 function Nota(d, campos, direitos, eixos) {
     if (d.tipo === 'ci') return {
@@ -94,7 +95,7 @@ function Inserir(props) {
     const registrar = (e) => {
         e.preventDefault();
         if (data === '' || turma === '' || disciplina === '' || !(horaAula === '' || bimestre === '') || anotacoes === '') {
-            return alert("Preencha todos os campos!");
+            return toast.warning("Preencha todos os campos!");
 
         }
         const arr = [];
@@ -135,7 +136,6 @@ function Inserir(props) {
     if (students.length > 0) return (
         <div>
             <div className="submit">
-
                 <button class="button" type="submit" onClick={registrar}>Registrar!</button>
             </div>
             <table class="table">

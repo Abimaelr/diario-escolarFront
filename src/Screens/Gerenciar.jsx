@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
+import { Breadcrumb } from 'antd';
 import { Container } from 'react-bootstrap';
 import api from '../Api/Axios';
 import Inserir from '../Components/Inserir';
@@ -58,6 +59,18 @@ function Diarios() {
     return (
         <div>
             <Container>
+                <div className="bread">
+                    <h3> { location.pathname === "/diario" ? "Registro de Frequência":"Registro de Notas ou Competências"}</h3>
+                    <Breadcrumb>
+                        <Breadcrumb.Item href="">
+                            <Link to="/">Início</Link>
+                        </Breadcrumb.Item>
+                        <Breadcrumb.Item>
+                        { location.pathname === "/diario" ? "Registro de Frequência":"Registro de Notas ou Competências"}
+                            
+                        </Breadcrumb.Item>
+                    </Breadcrumb>
+                </div>
                 <header>
                     <form className="panel" action="">
                         <div className="action">
@@ -108,7 +121,7 @@ function Diarios() {
                                             {disciplina.DireitosAp && turma !== "" ? disciplina.DireitosAp.map(e => <label class="checkbox">
                                                 <input type="checkbox" value={e} onChange={({ target }) => buffer({ target }, e, 1)} /> {e} </label>) : ''}
                                         </div>
-                                    </>: ''}
+                                    </> : ''}
                                     <input required type="date" id="date" onChange={({ target }) => { setData(target.value) }} />
                                     <div class="control">
                                         <div class="select">
