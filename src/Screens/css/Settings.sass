@@ -1,6 +1,12 @@
 @import '../../_default'
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap')
 
+.config
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
 .gradeGroup
     display: grid
     grid-template-columns: auto auto auto
@@ -14,8 +20,11 @@
     border-radius: 5px
     border: solid 1px #d9d9d93d
     height: 500px
+    margin: auto
     // background-color: #d9d9d9d0
     transition: 400ms
+  
+    width: 350px
     h4
         color: $primary-text-color
     &:hover

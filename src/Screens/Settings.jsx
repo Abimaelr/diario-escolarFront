@@ -42,7 +42,7 @@ function Settings() {
     if (disciplinasProf === '') return <> </>;
     else
         return (
-            <div>
+            <div className="config">
                 <div className="buttonContainer">
                     <button className="button salvar" onClick={salvarAlt}>Salvar alterações!</button>
                 </div>
@@ -67,6 +67,9 @@ function Settings() {
                             </div>
                         </>
                     ) : ''}
+                </div>
+                <div className="buttonContainer">
+                    <button className="button salvar" onClick={salvarAlt}>Salvar alterações!</button>
                 </div>
             </div>
         )

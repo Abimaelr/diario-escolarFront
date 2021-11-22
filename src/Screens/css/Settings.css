@@ -4,6 +4,22 @@
   height: 1000px;
 }
 
+.config {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .gradeGroup {
   display: -ms-grid;
   display: grid;
@@ -20,8 +36,10 @@
   border-radius: 5px;
   border: solid 1px #d9d9d93d;
   height: 500px;
+  margin: auto;
   -webkit-transition: 400ms;
   transition: 400ms;
+  width: 350px;
 }
 
 .grade h4 {
