@@ -76,8 +76,25 @@
 #submit {
   margin: auto;
   width: 100%;
+  margin-bottom: 50px;
   background-color: #717171;
   border-radius: 5px;
   color: #D1C4E9;
+}
+
+.logoContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.loginLogo {
+  width: 120px;
+  margin: 20px;
+  -webkit-filter: invert(100);
+          filter: invert(100);
 }
 /*# sourceMappingURL=Login.css.map */

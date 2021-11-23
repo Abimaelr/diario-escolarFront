@@ -48,11 +48,16 @@ function Login() {
                                 <br />
                                 <input class="input" id="password" type="password" onChange={({ target }) => onPass(target.value)} />
                                 <br /><br /><br />
-                                <button class="input" id="submit" type="submit" value="Entrar" style={{display:"flex", alignItems:"center", justifyContent:"center", textAlign:'center'}}onClick={(e) => { log(e) }}>Entrar</button>
+                                <button class="input" id="submit" type="submit" value="Entrar" style={{ display: "flex", alignItems: "center", justifyContent: "center", textAlign: 'center' }} onClick={(e) => { log(e) }}>Entrar</button>
+                                <div className="logoContainer">
+                                    <img className="loginLogo" src="https://www.joaopessoa.pb.gov.br/google/assets/img/sedec.png" alt="" />
+                                    <img className="loginLogo" src="https://www.joaopessoa.pb.gov.br/wp-content/themes/joaopessoavinte/assets/images/logo-pmjp-white-horizontal.png" alt="logo" />
+                                </div>
                             </form>
                         </div>
                     </Col>
                 </Row>
+
             </Container>
         )
 }
