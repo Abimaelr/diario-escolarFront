@@ -48,7 +48,7 @@ function Login() {
                                 <br />
                                 <input class="input" id="password" type="password" onChange={({ target }) => onPass(target.value)} />
                                 <br /><br /><br />
-                                <input class="input" id="submit" type="submit" value="Entrar" onClick={(e) => { log(e) }} />
+                                <button class="input" id="submit" type="submit" value="Entrar" style={{display:"flex", alignItems:"center", justifyContent:"center", textAlign:'center'}}onClick={(e) => { log(e) }}>Entrar</button>
                             </form>
                         </div>
                     </Col>
