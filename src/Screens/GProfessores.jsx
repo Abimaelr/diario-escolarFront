@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { Breadcrumb } from 'antd';
 import { Container } from 'react-bootstrap';
-import { Redirect } from 'react-router';
+import { Redirect, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import api from '../Api/Axios';
 
@@ -62,7 +63,19 @@ function Gprofessores(props) {
     else if (permissions === 'd')
         return (
             <Container>
-                <h3>Editar professor</h3>
+                <div className="bread">
+                    <h3> Gerenciar Professores</h3>
+                    <Breadcrumb>
+                        <Breadcrumb.Item href="">
+                            <Link to="/">Início</Link>
+                        </Breadcrumb.Item>
+                        <Breadcrumb.Item>
+                            Gerenciar Professores
+                        </Breadcrumb.Item>
+                    </Breadcrumb>
+                    <br />
+                </div>
+                <h4>Editar professor</h4>
                 <div className="search" action="">
                     <input required onChange={({ target }) => setMatricula(target.value)} class="input is-hovered" type="text" placeholder="Matrícula" />
                     <button className="button" onClick={() => {
@@ -107,12 +120,12 @@ function Gprofessores(props) {
                 }
                 <hr />
 
-                <h3>Criar professor</h3>
+                <h4>Criar professor</h4>
                 <form class="control">
                     <input required class="input is-hovered" onChange={({ target }) => setNome(target.value)} type="text" placeholder="Nome" />
                     <input required class="input is-hovered" onChange={({ target }) => setUser(target.value)} type="email" placeholder="email" />
                     <input required class="input is-hovered" onChange={({ target }) => setProfid(target.value)} type="text" placeholder="matrícula" />
-                    <h3>Turmas</h3>
+                    <h5>Turmas</h5>
                     <div className="turmaBox">
                         {turmas.map(t => (
                             <label class="checkbox">

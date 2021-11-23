@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap';
-import { Redirect } from 'react-router-dom';
+import { Breadcrumb } from 'antd';
+import { Redirect, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import api from '../Api/Axios';
 
@@ -25,7 +26,18 @@ function GTurmas(props) {
     else if (permissions === 'd')
         return (
             <Container>
-                <h3>Criar Turma</h3>
+                    <div className="bread">
+                    <h3> Criar turma</h3>
+                    <Breadcrumb>
+                        <Breadcrumb.Item href="">
+                            <Link to="/">Início</Link>
+                        </Breadcrumb.Item>
+                        <Breadcrumb.Item>
+                        Criar turma
+                        </Breadcrumb.Item>
+                    </Breadcrumb>
+                    <br />
+                </div>
                 <div className="form">
                     <input class="input is-primary" type="text" onChange={({ target }) => setcodTurma(target.value)} placeholder="Código da Turma"></input>
                     <input class="input is-primary" type="text" onChange={({ target }) => setnomeTurma(target.value)} placeholder="Nome da Turma"></input>

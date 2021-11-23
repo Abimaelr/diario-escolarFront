@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { Breadcrumb } from 'antd';
 import { Container } from 'react-bootstrap';
-import { Redirect } from 'react-router';
+import { Redirect, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import api from '../Api/Axios';
 
@@ -42,9 +43,20 @@ function GStudents(props) {
     else if (permissions === 'd')
         return (
             <Container>
-                <h1>Gerenciar Estudantes</h1>
+                <div className="bread">
+                    <h3> Gerenciar Estudantes</h3>
+                    <Breadcrumb>
+                        <Breadcrumb.Item href="">
+                            <Link to="/">Início</Link>
+                        </Breadcrumb.Item>
+                        <Breadcrumb.Item>
+                            Gerenciar Estudantes
+                        </Breadcrumb.Item>
+                    </Breadcrumb>
+                    <br />
+                </div>
                 <hr />
-                <h2>Criar Estudante</h2>
+                <h4>Criar Estudante</h4>
                 <div className="form">
                     <input class="input is-primary" type="text" onChange={({ target }) => setnomeCompleto(target.value)} placeholder="Nome Completo"></input>
                     <input class="input is-primary" type="text" onChange={({ target }) => setalunoId(target.value)} placeholder="Id Aluno"></input>
@@ -83,7 +95,7 @@ function GStudents(props) {
                     </button>
                 </div>
                 <hr />
-                <h2>Transferir Estudante</h2>
+                <h4>Transferir Estudante</h4>
                 <div>
                     <div className="search">
                         <input class="input is-primary" type="text" onChange={({ target }) => setalunoIds(target.value)} placeholder="Id Aluno"></input>
