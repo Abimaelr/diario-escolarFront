@@ -8,6 +8,7 @@ import { Container, Placeholder } from 'react-bootstrap';
 import TurmaCard from '../Components/TurmaCard';
 import jwt from 'jsonwebtoken';
 import './css/Settings.css'
+import { toast } from 'react-toastify';
 
 function Turmas() {
     const [turmas, setTurmas] = useState(undefined);
@@ -20,7 +21,7 @@ function Turmas() {
             })
             .catch(({ response }) => {
                 const { data } = response;
-                alert(data.message)
+                toast.warning(data.message)
             }
             )
     }, []);

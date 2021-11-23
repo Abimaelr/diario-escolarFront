@@ -3,6 +3,7 @@ import { Redirect, Link } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import api from '../Api/Axios';
 import './css/Home.css'
+import { toast } from 'react-toastify';
 
 function Home(props) {
     const [auth, setAuth] = useState(true);
@@ -10,7 +11,7 @@ function Home(props) {
     useEffect(() => {
         api.get('/').then((response) => { setPermissions(response.data.permissions); }).catch(({ response }) => {
             const { data } = response;
-            alert(data.message)
+            toast.warning(data.message)
             setAuth(false);
         })
     }, []);

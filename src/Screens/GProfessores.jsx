@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap';
 import { Redirect } from 'react-router';
+import { toast } from 'react-toastify';
 import api from '../Api/Axios';
 
 import './css/G.css'
@@ -23,14 +24,14 @@ function Gprofessores(props) {
     useEffect(() => {
         api.get('/').then((response) => { setPermissions(response.data.permissions); }).catch(({ response }) => {
             const { data } = response;
-            alert(data.message)
+            toast.warning(data.message)
         })
     }, []);
 
     useEffect(() => {
         api.get('/classes').then((response) => { setTurmas(response.data.classes) }).catch(({ response }) => {
             const { data } = response;
-            alert(data.message)
+            toast.warning(data.message)
         })
     }, []);
 
@@ -74,7 +75,7 @@ function Gprofessores(props) {
                                     seteUserId(data[0].userId);
                                 }
                             }).catch((errors) => {
-                                alert("Professor não encontrado")
+                                toast.warning("Professor não encontrado")
                             });
                     }}>Procurar</button>
                 </div>
@@ -97,7 +98,7 @@ function Gprofessores(props) {
                                     userId: eUserId,
                                     turmas: eTurma,
                                     profId: matricula
-                                }).then(({ data }) => alert(data.message))
+                                }).then(({ data }) => toast.success(data.message))
                             }
                             }
                         >Salvar alterações!</button>
@@ -130,7 +131,7 @@ function Gprofessores(props) {
                                 profId,
                                 turmas: Cturmas
 
-                            }).then(response => alert(response.data)).catch(error => alert(error.response.data))
+                            }).then(response => toast.success(response.data)).catch(error => toast.warning(error.response.data))
                         }}>
                             Criar Professor!
                         </button>

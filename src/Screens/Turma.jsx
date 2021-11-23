@@ -5,6 +5,7 @@ import './css/Turma.css'
 import { Breadcrumb } from 'antd';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
+import { toast } from 'react-toastify';
 
 function Turma(props) {
     const [students, setStudents] = useState();
@@ -19,10 +20,10 @@ function Turma(props) {
 
         api.get(`/classes/${id}`)
             .then(({ data }) => setStudents(data.students))
-            .catch(() => alert('Erro'))
+            .catch(() => toast.warning('Erro'))
         api.get(`/classes/c?classCode=${id}`)
             .then(({ data }) => setTurma(data))
-            .catch(() => alert('Erro'))
+            .catch(() => toast.warning('Erro'))
 
         // api.get('/disciplinas').then(({ data }) => setDisciplinas(data.disciplinas)).catch(({ response }) => alert(response))
     }, [id])

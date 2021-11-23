@@ -72,7 +72,7 @@ function Inserir(props) {
     const markBolN = (id, { target }) => {
         if (target.value > 10 || target.value < 0) {
             target.value = 0;
-            return alert('A nota deve estar entre 0 e 10')
+            return toast.success('A nota deve estar entre 0 e 10')
         }
         const buffer = student;
         buffer[`${id}`] = {
@@ -112,7 +112,7 @@ function Inserir(props) {
             })
             const out = { pack: arr };
             for (let i = 0; i < horaAula; i++)
-                api.post('/disciplinas/diarios/', out).then((result) => alert('Frequencia registrada com sucesso!')).catch(({ response }) => alert(response.data.message))
+                api.post('/disciplinas/diarios/', out).then((result) => toast.success('Frequencia registrada com sucesso!')).catch(({ response }) => toast.warning(response.data.message))
         }
         else if (location === '/boletim') {
             Object.keys(student).forEach(s => {
@@ -129,7 +129,7 @@ function Inserir(props) {
 
             const out = { pack: arr };
 
-            api.post('/disciplinas/boletins/', out).then((result) => alert('Boletim registrado com sucesso!')).catch(({ response }) => alert(response.data.message))
+            api.post('/disciplinas/boletins/', out).then((result) => toast.success('Boletim registrado com sucesso!')).catch(({ response }) => toast.warning(response.data.message))
         }
     }
 

@@ -6,6 +6,7 @@ import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import './css/Student.css';
+import { toast } from 'react-toastify';
 
 function Student() {
     const [student, setStudent] = useState();
@@ -18,11 +19,11 @@ function Student() {
             .then(() => {
                 api.get(`/disciplinas/diario/q/?alunoId=${alunoId}`).then((r) => setFreq(r.data));
                 api.get(`/disciplinas/boletim/q/?alunoId=${alunoId}`).then((r) => setBol(r.data));
-            }).catch(() => alert("Erro no servidor!"))
+            }).catch(() => toast.warning("Erro no servidor!"))
 
         api.get(`/classes/c?classCode=${id}`)
             .then(({ data }) => setTurma(data))
-            .catch(() => alert('Erro'))
+            .catch(() => toast.warning('Erro'))
     }, [alunoId]);
 
 

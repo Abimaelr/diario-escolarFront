@@ -4,6 +4,7 @@ import ConsultaFrequencia from './ConsultaFrequencia';
 
 import { useLocation } from 'react-router-dom';
 import ConsultaBoletim from './ConsultaBoletim';
+import { toast } from 'react-toastify';
 
 function ConsultarFreq(props) {
     const location = useLocation().pathname;
@@ -13,7 +14,7 @@ function ConsultarFreq(props) {
 
     const consultar = (e) => {
         e.preventDefault();
-        if (turma === '' || disciplina === '') return alert('Escolha a turma e disciplina!');
+        if (turma === '' || disciplina === '') return toast.warning('Escolha a turma e disciplina!');
 
         if (location === '/diario') {
             api.get(`disciplinas/diarios?codTurma=${turma}&disciplina=${disciplina.nome}`

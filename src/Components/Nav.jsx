@@ -3,6 +3,7 @@ import { Redirect, useLocation, Link } from 'react-router-dom';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import api from '../Api/Axios';
 import './css/Nav.css'
+import { toast } from 'react-toastify';
 
 function Navegacao(props) {
     const [user, setUser] = useState('');
@@ -15,7 +16,7 @@ function Navegacao(props) {
         }).catch(({ response }) => {
             const { data } = response;
             setRedirect(true);
-            alert(data.message)
+            toast.warning(data.message)
         })
     }, []);
     if (redirect) return <Redirect to="/login" />

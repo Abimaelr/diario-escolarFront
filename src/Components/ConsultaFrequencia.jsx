@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import { toast } from 'react-toastify';
 
 import './css/Consultar.css'
 
@@ -17,7 +18,7 @@ function InfoCard(props) {
     const saveEdit = async () => {
         axios.put('disciplinas/diarios/', {
             pack: freq,
-        }).then(result => alert('Frequencia Editada com Sucesso!'))
+        }).then(result => toast.success('Frequencia Editada com Sucesso!'))
         setEdit(false);
     }
 

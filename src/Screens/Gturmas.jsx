@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import api from '../Api/Axios';
 
 import './css/G.css'
@@ -15,7 +16,7 @@ function GTurmas(props) {
     useEffect(() => {
         api.get('/').then((response) => { setPermissions(response.data.permissions); }).catch(({ response }) => {
             const { data } = response;
-            alert(data.message)
+            toast.warning(data.message)
         })
     }, []);
 
@@ -46,11 +47,11 @@ function GTurmas(props) {
                             turno
                         })
                             .then((response) => {
-                                alert("Turma criada com sucesso")
+                                toast.success("Turma criada com sucesso")
                                 setRedirect(true);
                             })
                             .catch((error) =>
-                                alert(error.response.data.message)
+                                toast.warning(error.response.data.message)
                             )
                     }}>
                         Criar!

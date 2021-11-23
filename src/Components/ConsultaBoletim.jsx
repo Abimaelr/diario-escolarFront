@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import { toast } from 'react-toastify';
 
 import Tipo from '../Helpers/Tipo';
 
@@ -23,14 +24,13 @@ function ConsultaBoletim(props) {
     const markBolN = (id, { target }) => {
         if (target.value > 10 || target.value < 0) {
             target.value = 0;
-            return alert('A nota deve estar entre 0 e 10')
+            return toast.warning('A nota deve estar entre 0 e 10')
         }
         notas[target.id].nota = target.value;
     }
 
     const markBolC = (id, { target }) => {
         notas[target.id].nota = target.value;
-        console.log(notas[target.id])
     }
 
 

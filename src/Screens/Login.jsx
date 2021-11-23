@@ -5,6 +5,7 @@ import api from '../Api/Axios';
 import './css/Login.css'
 
 import 'bulma/css/bulma.min.css'
+import { toast } from 'react-toastify';
 
 function Login() {
     const [userId, onUserId] = useState('');
@@ -20,10 +21,10 @@ function Login() {
             localStorage.setItem('disciplinas', JSON.stringify(data.disciplinas));
             api.defaults.headers.common['Authorization'] = localStorage.getItem('token');
             setRedirect(true);
-            alert("Login feito com sucesso!")
+            toast.success("Login feito com sucesso!")
         }).catch(({ response }) => {
             const { data } = response;
-            alert(data.message)
+            toast.error(data.message)
         })
 
     }

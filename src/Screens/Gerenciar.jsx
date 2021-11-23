@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-
 import { Breadcrumb } from 'antd';
 import { Container } from 'react-bootstrap';
 import api from '../Api/Axios';
 import Inserir from '../Components/Inserir';
 import Consultar from '../Components/Consultar';
 import './css/Diarios.css';
+import { toast } from 'react-toastify';
 
 let campos = [];
 let direitos = [];
@@ -31,8 +31,8 @@ function Diarios() {
 
     let metadata = { data, turma, setStudents, disciplina, horaAula, anotacoes, students, bimestre, campos, direitos, eixos }
     useEffect(() => {
-        api.get('/disciplinas').then(({ data }) => setDisciplinas(data.disciplinas)).catch(({ response }) => alert('Disciplinas'))
-        api.get('/classes/p').then(({ data }) => setTurmas(data.classes)).catch(({ response }) => alert('response'))
+        api.get('/disciplinas').then(({ data }) => setDisciplinas(data.disciplinas)).catch(({ response }) => toast.error('Erro'))
+        api.get('/classes/p').then(({ data }) => setTurmas(data.classes)).catch(({ response }) => toast.error('Erro'))
 
     }, [turma, disciplina])
 
@@ -122,6 +122,7 @@ function Diarios() {
                                                 <input type="checkbox" value={e} onChange={({ target }) => buffer({ target }, e, 1)} /> {e} </label>) : ''}
                                         </div>
                                     </> : ''}
+                                    
                                     <input required type="date" id="date" onChange={({ target }) => { setData(target.value) }} />
                                     <div class="control">
                                         <div class="select">

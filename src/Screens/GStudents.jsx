@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap';
 import { Redirect } from 'react-router';
+import { toast } from 'react-toastify';
 import api from '../Api/Axios';
 
 import './css/G.css'
@@ -22,7 +23,7 @@ function GStudents(props) {
     useEffect(() => {
         api.get('/').then((response) => { setPermissions(response.data.permissions); }).catch(({ response }) => {
             const { data } = response;
-            alert(data.message)
+            toast.warning(data.message)
         });
 
         api.get(`classes/${permissions === 'd' ? '' : 'p'}`)
@@ -32,7 +33,7 @@ function GStudents(props) {
             })
             .catch(({ response }) => {
                 const { data } = response;
-                alert(data.message)
+                toast.warning(data.message)
             }
             )
     });
@@ -71,11 +72,11 @@ function GStudents(props) {
                             nascimento,
                         })
                             .then((response) => {
-                                alert("Aluno criado com Sucesso!")
+                                toast.success("Aluno criado com Sucesso!")
                                 setRedirect(true);
                             })
                             .catch((error) =>
-                                alert(error.response.data)
+                                toast.warning(error.response.data)
                             )
                     }}>
                         Criar!
@@ -93,7 +94,7 @@ function GStudents(props) {
                                 }
                                 )
                                 .catch(error => {
-                                    alert(error.response.data)
+                                    toast.warning(error.response.data)
                                 })
                         }}>Procurar!</button>
                     </div>
@@ -118,12 +119,12 @@ function GStudents(props) {
                                         .then((response) => {
                                             setAluno(response.data)
                                             setAluno(undefined)
-                                            alert(response.data)
+                                            toast.success(response.data)
                                             setRedirect(true)
                                         }
                                         )
                                         .catch(error => {
-                                            alert(error.response.data)
+                                            toast.warning(error.response.data)
                                         })
                                 }}> Transferir!</button>
                             </div>
