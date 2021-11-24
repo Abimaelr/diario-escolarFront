@@ -9,13 +9,14 @@ function Home(props) {
     const [auth, setAuth] = useState(true);
     const [permissions, setPermissions] = useState('');
     useEffect(() => {
-        api.get('/').then((response) => { setPermissions(response.data.permissions); }).catch(({ response }) => {
+        api.get('/').then((response) => { setAuth(true); setPermissions(response.data.permissions); }).catch(({ response }) => {
             const { data } = response;
-            toast.warning(data.message)
+            // toast.warning(data.message)
             setAuth(false);
         })
     }, []);
     if (!auth) return <Redirect to="/login" />
+    else
     return (
         <div>
             <Container>
