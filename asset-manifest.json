@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/diario-escolarFront/static/css/main.0dbc386c.chunk.css",
-    "main.js": "/diario-escolarFront/static/js/main.7eff9510.chunk.js",
-    "main.js.map": "/diario-escolarFront/static/js/main.7eff9510.chunk.js.map",
-    "runtime-main.js": "/diario-escolarFront/static/js/runtime-main.f5d7d026.js",
-    "runtime-main.js.map": "/diario-escolarFront/static/js/runtime-main.f5d7d026.js.map",
+    "main.css": "/diario-escolarFront/static/css/main.92b8e81a.chunk.css",
+    "main.js": "/diario-escolarFront/static/js/main.9dd29b41.chunk.js",
+    "main.js.map": "/diario-escolarFront/static/js/main.9dd29b41.chunk.js.map",
+    "runtime-main.js": "/diario-escolarFront/static/js/runtime-main.f7c1fca4.js",
+    "runtime-main.js.map": "/diario-escolarFront/static/js/runtime-main.f7c1fca4.js.map",
     "static/css/2.b5e4dcac.chunk.css": "/diario-escolarFront/static/css/2.b5e4dcac.chunk.css",
-    "static/js/2.72c526cd.chunk.js": "/diario-escolarFront/static/js/2.72c526cd.chunk.js",
-    "static/js/2.72c526cd.chunk.js.map": "/diario-escolarFront/static/js/2.72c526cd.chunk.js.map",
-    "static/js/3.60bec245.chunk.js": "/diario-escolarFront/static/js/3.60bec245.chunk.js",
-    "static/js/3.60bec245.chunk.js.map": "/diario-escolarFront/static/js/3.60bec245.chunk.js.map",
+    "static/js/2.9d3a565d.chunk.js": "/diario-escolarFront/static/js/2.9d3a565d.chunk.js",
+    "static/js/2.9d3a565d.chunk.js.map": "/diario-escolarFront/static/js/2.9d3a565d.chunk.js.map",
+    "static/js/3.82a092bd.chunk.js": "/diario-escolarFront/static/js/3.82a092bd.chunk.js",
+    "static/js/3.82a092bd.chunk.js.map": "/diario-escolarFront/static/js/3.82a092bd.chunk.js.map",
     "index.html": "/diario-escolarFront/index.html",
     "static/css/2.b5e4dcac.chunk.css.map": "/diario-escolarFront/static/css/2.b5e4dcac.chunk.css.map",
-    "static/css/main.0dbc386c.chunk.css.map": "/diario-escolarFront/static/css/main.0dbc386c.chunk.css.map",
-    "static/js/2.72c526cd.chunk.js.LICENSE.txt": "/diario-escolarFront/static/js/2.72c526cd.chunk.js.LICENSE.txt",
+    "static/css/main.92b8e81a.chunk.css.map": "/diario-escolarFront/static/css/main.92b8e81a.chunk.css.map",
+    "static/js/2.9d3a565d.chunk.js.LICENSE.txt": "/diario-escolarFront/static/js/2.9d3a565d.chunk.js.LICENSE.txt",
     "static/media/App.css": "/diario-escolarFront/static/media/background.c5a60394.png",
     "static/media/Login.css": "/diario-escolarFront/static/media/marca.2e2b8e6f.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.f5d7d026.js",
+    "static/js/runtime-main.f7c1fca4.js",
     "static/css/2.b5e4dcac.chunk.css",
-    "static/js/2.72c526cd.chunk.js",
-    "static/css/main.0dbc386c.chunk.css",
-    "static/js/main.7eff9510.chunk.js"
+    "static/js/2.9d3a565d.chunk.js",
+    "static/css/main.92b8e81a.chunk.css",
+    "static/js/main.9dd29b41.chunk.js"
   ]
 }
