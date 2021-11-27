@@ -2,7 +2,7 @@
   "name": "diario-escolar",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "http://diario-escolar.herokuapp.com/#/",
   "engines": {
     "npm": "6.x",
     "node": "12.x"
