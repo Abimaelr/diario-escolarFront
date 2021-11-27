@@ -2,6 +2,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  HashRouter,
 } from "react-router-dom";
 
 import Home from "./Screens/Home";
@@ -27,7 +28,7 @@ function App() {
   return (
     <div className="App">
       < ToastContainer />
-      <Router>
+      <HashRouter>
         <Switch>
           <Route exact path="/login" component={Login} />
           <div className="bg">
@@ -45,7 +46,7 @@ function App() {
             <Footer />
           </div>
         </Switch>
-      </Router>
+      </HashRouter>
     </div>
   );
 }
