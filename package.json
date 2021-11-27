@@ -5,7 +5,7 @@
   "homepage": ".",
   "engines": {
     "npm": "6.x",
-    "node": "14.x"
+    "node": "12.x"
   },
   "dependencies": {
     "@ant-design/icons": "4.0.0",
