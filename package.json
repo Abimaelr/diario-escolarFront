@@ -4,7 +4,7 @@
   "private": true,
   "homepage": ".",
   "engines": {
-    "npm": "6.x"
+    "npm": "12.18.2"
   },
   "dependencies": {
     "@ant-design/icons": "4.0.0",
