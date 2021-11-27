@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 import './css/Student.css';
 import { toast } from 'react-toastify';
+import Loading from '../Components/Loading';
 
 function Student() {
     const [student, setStudent] = useState();
@@ -88,7 +89,7 @@ function Student() {
                 </div>
             </Container>
         )
-    else return ''
+    else return <Loading />
 }
 
 export default Student

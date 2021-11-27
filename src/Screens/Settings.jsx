@@ -9,6 +9,7 @@ import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 
 import './css/Settings.css'
 import { Link, Redirect } from 'react-router-dom';
+import Loading from '../Components/Loading';
 
 function Settings() {
     const [grade, setGrade] = useState([]);
@@ -50,7 +51,7 @@ function Settings() {
             toast.error('Erro ao salvar Alterações')
         })
     }
-    if (disciplinasProf === '') return <> </>;
+    if (disciplinasProf === '') return <Loading />;
     else if (redirect) return <Redirect to='/' />
     else
         return (

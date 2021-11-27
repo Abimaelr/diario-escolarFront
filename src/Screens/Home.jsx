@@ -4,18 +4,21 @@ import { Container } from 'react-bootstrap';
 import api from '../Api/Axios';
 import './css/Home.css'
 import { toast } from 'react-toastify';
+import Loading from '../Components/Loading';
 
 function Home(props) {
     const [auth, setAuth] = useState(true);
     const [permissions, setPermissions] = useState('');
+    const [load, setLoad] = useState(false);
     useEffect(() => {
-        api.get('/').then((response) => { setAuth(true); setPermissions(response.data.permissions); }).catch(({ response }) => {
+        api.get('/').then((response) => { setAuth(true); setPermissions(response.data.permissions); setLoad(true)}).catch(({ response }) => {
             const { data } = response;
             // toast.warning(data.message)
             setAuth(false);
         })
     }, []);
-    if (!auth) return <Redirect to="/login" />
+    if (!load) return <Loading />
+    else if (!auth) return <Redirect to="/login" />
     else
     return (
         <div>

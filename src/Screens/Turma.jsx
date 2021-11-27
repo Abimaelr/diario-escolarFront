@@ -6,6 +6,7 @@ import { Breadcrumb } from 'antd';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import { toast } from 'react-toastify';
+import Loading from '../Components/Loading';
 
 function Turma(props) {
     const [students, setStudents] = useState();
@@ -33,7 +34,7 @@ function Turma(props) {
     //         <p>Carregando...</p>
     //     </div>
     // )
-    if (!students) return <h1>Carregando...</h1>
+    if (!students) return <Loading />
     else
         return (
             <Container>

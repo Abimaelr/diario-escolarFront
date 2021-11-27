@@ -9,6 +9,7 @@ import TurmaCard from '../Components/TurmaCard';
 import jwt from 'jsonwebtoken';
 import './css/Settings.css'
 import { toast } from 'react-toastify';
+import Loading from '../Components/Loading';
 
 function Turmas() {
     const [turmas, setTurmas] = useState(undefined);
@@ -26,7 +27,7 @@ function Turmas() {
             )
     }, []);
 
-    if (!turmas) return ''
+    if (!turmas) return <Loading />
     else
         return (
             <Container>
