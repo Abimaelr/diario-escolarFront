@@ -4,7 +4,7 @@ import { Breadcrumb } from 'antd';
 import api from '../Api/Axios';
 import { Link } from 'react-router-dom';
 import './css/Turmas.css'
-import { Container, Placeholder } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import TurmaCard from '../Components/TurmaCard';
 import jwt from 'jsonwebtoken';
 import './css/Settings.css'
