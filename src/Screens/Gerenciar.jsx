@@ -7,6 +7,10 @@ import Inserir from '../Components/Inserir';
 import Consultar from '../Components/Consultar';
 import './css/Diarios.css';
 import { toast } from 'react-toastify';
+import { DatePicker, Space } from 'antd';
+import "antd/dist/antd.css";
+
+import locale from 'antd/es/date-picker/locale/pt_BR';
 
 let campos = [];
 let direitos = [];
@@ -36,7 +40,7 @@ function Diarios() {
 
     }, [turma, disciplina])
 
-
+    const dateFormat = 'DD/MM/YYYY';
 
     const buffer = ({ target: { checked } }, value, i) => {
 
@@ -60,14 +64,14 @@ function Diarios() {
         <div>
             <Container>
                 <div className="bread">
-                    <h3> { location.pathname === "/diario" ? "Registro de Frequência":"Registro de Notas ou Competências"}</h3>
+                    <h3> {location.pathname === "/diario" ? "Registro de Frequência" : "Registro de Notas ou Competências"}</h3>
                     <Breadcrumb>
                         <Breadcrumb.Item href="">
                             <Link to="/">Início</Link>
                         </Breadcrumb.Item>
                         <Breadcrumb.Item>
-                        { location.pathname === "/diario" ? "Registro de Frequência":"Registro de Notas ou Competências"}
-                            
+                            {location.pathname === "/diario" ? "Registro de Frequência" : "Registro de Notas ou Competências"}
+
                         </Breadcrumb.Item>
                     </Breadcrumb>
                 </div>
@@ -122,8 +126,10 @@ function Diarios() {
                                                 <input type="checkbox" value={e} onChange={({ target }) => buffer({ target }, e, 1)} /> {e} </label>) : ''}
                                         </div>
                                     </> : ''}
-                                    
-                                    <input required type="date" id="date" onChange={({ target }) => { setData(target.value) }} />
+                                    <Space direction="vertical">
+                                        <DatePicker locale={locale} format={dateFormat} onChange={(date, dateString) => { setData(dateString) }} />
+                                    </Space>
+                                    {/* <input required type="date" id="date" onChange={({ target }) => { setData(target.value) }} /> */}
                                     <div class="control">
                                         <div class="select">
                                             {

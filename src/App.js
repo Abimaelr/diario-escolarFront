@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
       < ToastContainer />
-      <HashRouter>
+      <Router>
         <Switch>
           <Route exact path="/login" component={Login} />
           <div className="bg">
@@ -46,7 +46,7 @@ function App() {
             <Footer />
           </div>
         </Switch>
-      </HashRouter>
+      </Router>
     </div>
   );
 }
