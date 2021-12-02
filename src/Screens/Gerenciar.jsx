@@ -117,7 +117,7 @@ function Diarios() {
 
                                         </div>
                                         <div className="checkboxGroup">
-                                            {disciplina.DireitosAp && turma !== "" ? <h5>Direitos de Aprendizado</h5> : ''}
+                                            {disciplina.DireitosAp && turma !== "" ? <h5>Direitos de Aprendizagem</h5> : ''}
                                             {disciplina.DireitosAp && turma !== "" ? disciplina.DireitosAp.map(e => <label class="checkbox">
                                                 <input type="checkbox" value={e} onChange={({ target }) => buffer({ target }, e, 1)} /> {e} </label>) : ''}
                                         </div>
