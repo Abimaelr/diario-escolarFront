@@ -145,7 +145,7 @@ function Inserir(props) {
                         <th>Matrícula</th>
                         <th>
                             {
-                                location === "/diario" ? "Presente?" : "Nota"
+                                location === "/diario" ? "Presente?" : "Nota/Competência"
                             }
                         </th>
                     </tr>

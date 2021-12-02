@@ -109,7 +109,7 @@ function ConsultaBoletim(props) {
                                 {
 
                                 }
-                                <th>Nota</th>
+                                <th>Nota/Competência</th>
                             </tr>
                         </thead>
                         <tbody>
