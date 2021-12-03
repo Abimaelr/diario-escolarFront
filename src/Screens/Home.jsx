@@ -26,7 +26,7 @@ function Home(props) {
                 <div className="links">
                     <Link className="link seletor" to="/config"><h3 >Meus Componentes Curriculares</h3></Link>
                     <Link className="link seletor" to="/diario"><h3 >Registro de Aula</h3></Link>
-                    <Link className="link seletor" to="/boletim"><h3 >Registro de Notas/Competências</h3></Link>
+                    <Link className="link seletor" to="/boletim"><h3 >Registro de Médias/Competências</h3></Link>
                     {permissions === 'd' ? <>
                         <Link className="link seletor" to={{ pathname: "/gestudantes", state: { permissions } }}><h3>Gerenciar Estudantes</h3></Link>
                         <Link className="link seletor" to={{ pathname: "/gturma", state: { permissions } }}><h3 >Criar Turma</h3></Link>
@@ -34,6 +34,7 @@ function Home(props) {
                     </> : <></>}
 
                     <Link className="link seletor" to="/turmas"><h3>Minhas Turmas</h3></Link>
+                    <a className="link seletor tutorial" target="_blank" href="https://drive.google.com/drive/folders/1KbeTICcWUWC0T4VJZFuadpB5ZqGN7czE?usp=sharing" rel="noreferrer"><h3>Tutoriais</h3></a>
                 </div>
                 <div className="secondary">
 

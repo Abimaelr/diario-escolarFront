@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://localhost:3000/"
+    baseURL: "https://joaopessoa.pb.gov.br/apidiarioonline"
 });
 
 api.defaults.headers.common['Authorization'] = localStorage.getItem('token');

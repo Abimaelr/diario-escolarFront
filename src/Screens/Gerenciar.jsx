@@ -64,13 +64,13 @@ function Diarios() {
         <div>
             <Container>
                 <div className="bread">
-                    <h3> {location.pathname === "/diario" ? "Registro de Frequência" : "Registro de Notas ou Competências"}</h3>
+                    <h3> {location.pathname === "/diario" ? "Registro de Frequência" : "Registro de Médias ou Competências"}</h3>
                     <Breadcrumb>
                         <Breadcrumb.Item href="">
                             <Link to="/">Início</Link>
                         </Breadcrumb.Item>
                         <Breadcrumb.Item>
-                            {location.pathname === "/diario" ? "Registro de Frequência" : "Registro de Notas ou Competências"}
+                            {location.pathname === "/diario" ? "Registro de Frequência" : "Registro de Médias ou Competências"}
 
                         </Breadcrumb.Item>
                     </Breadcrumb>
@@ -146,7 +146,7 @@ function Diarios() {
                                                         <option value="2">2</option>
                                                         <option value="3">3</option>
                                                         <option value="4">4</option>
-                                                        <option value="5">final</option>
+                                                        <option value="5">Média Final</option>
                                                     </select>
                                             }
                                         </div>
