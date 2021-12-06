@@ -25,7 +25,7 @@ function Home(props) {
             <Container>
                 <div className="links">
                     <Link className="link seletor" to="/config"><h3 >Meus Componentes Curriculares</h3></Link>
-                    <Link className="link seletor" to="/diario"><h3 >Registro de Aula</h3></Link>
+                    {/* <Link className="link seletor" to="/diario"><h3 >Registro de Aula</h3></Link> */}
                     <Link className="link seletor" to="/boletim"><h3 >Registro de Médias/Competências</h3></Link>
                     {permissions === 'd' ? <>
                         <Link className="link seletor" to={{ pathname: "/gestudantes", state: { permissions } }}><h3>Gerenciar Estudantes</h3></Link>
