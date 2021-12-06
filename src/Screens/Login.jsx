@@ -39,7 +39,7 @@ function Login() {
                     <Col sm={5}>
                         <div className="loginBox">
                             <form action="" method="post">
-                                <h1>Diário de Classe 2021</h1>
+                                <h1>Instrumento de Registro das Médias Bimestrais 2021</h1>
                                 <label htmlFor="email">Login</label>
                                 <br />
                                 <input class="input" id="email" type="email" onChange={({ target }) => onUserId(target.value)} />
