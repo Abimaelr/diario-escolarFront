@@ -21,7 +21,7 @@ function ConsultaBoletim(props) {
     const saveEdit = async () => {
         api.put('disciplinas/boletins/', {
             pack: notas
-        }).then(result => result).catch(error => console.log(error.response))
+        }).then(result => toast.success("Média/Competência Editada com sucesso!")).catch(error => console.log(error.response))
         setEdit(false);
     }
 
