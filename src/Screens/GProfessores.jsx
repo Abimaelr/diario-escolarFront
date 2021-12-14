@@ -95,7 +95,7 @@ function Gprofessores(props) {
                 <br />
                 {professor.turmas ? <>
                     <p>Nome: {professor.nome}</p>
-                    <input required class="input is-hovered" type="email" placeholder="email" defaultValue={professor.userId} />
+                    <input required class="input is-hovered" type="email" placeholder="email" defaultValue={professor.userId} onChange={({ target }) => seteUserId(target.value)} />
                     <div className="turmaBox">
                         {turmas.map(t => (
                             <label class="checkbox">
