@@ -73,14 +73,20 @@ function Student() {
                             <tbody>
                                 {
                                     Object.keys(boletim).map((key) => {
-                                        const { nota } = boletim[key];
+                                        // const { nota } = boletim[key];
+                                        const n1 = boletim[key].find(n => n.bimestre == '1');
+                                        const n2 = boletim[key].find(n => n.bimestre == '2');
+                                        const n3 = boletim[key].find(n => n.bimestre == '3');
+                                        const n4 = boletim[key].find(n => n.bimestre == '4');
+                                        const n5 = boletim[key].find(n => n.bimestre == '5');
+                                        console.log(boletim[key])
                                         return (<tr>
                                             <td>{key}</td>
-                                            <td>{boletim[key][0] !== undefined ? boletim[key][0].nota : ''}</td>
-                                            <td>{boletim[key][1] !== undefined ? boletim[key][1].nota : ''}</td>
-                                            <td>{boletim[key][2] !== undefined ? boletim[key][2].nota : ''}</td>
-                                            <td>{boletim[key][3] !== undefined ? boletim[key][3].nota : ''}</td>
-                                            <td>{boletim[key][4] !== undefined ? boletim[key][4].nota : ''}</td>
+                                            <td>{n1 !== undefined ? n1.nota : ''}</td>
+                                            <td>{n2 !== undefined ? n2.nota : ''}</td>
+                                            <td>{n3 !== undefined ? n3.nota : ''}</td>
+                                            <td>{n4 !== undefined ? n4.nota : ''}</td>
+                                            <td>{n5 !== undefined ? n5.nota : ''}</td>
                                         </tr>)
                                     })}
                             </tbody>
